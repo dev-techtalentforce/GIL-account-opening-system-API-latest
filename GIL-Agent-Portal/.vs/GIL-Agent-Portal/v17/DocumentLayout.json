@@ -1,0 +1,205 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GIL\\GIL-Agent-Portal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\services\\intetrface\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\intetrface\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\repositories\\interface\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\repositories\\interface\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\gil\\gil-agent-portal\\gil-agent-portal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Program.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Program.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Program.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T07:55:25.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\appsettings.json",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\appsettings.json",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\appsettings.json",
+              "RelativeToolTip": "GIL-Agent-Portal\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-07T07:52:24.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Services\\EmailService.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\EmailService.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Services\\EmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T07:51:13.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAAAIMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T07:10:40.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Models\\Users.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Models\\Users.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Models\\Users.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAApwBsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T07:01:53.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersService.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\UsersService.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Services\\UsersService.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\UsersService.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Services\\UsersService.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T07:00:09.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUsersService.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T06:59:38.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsersRepository.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Repositories\\UsersRepository.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Repositories\\UsersRepository.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Repositories\\UsersRepository.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Repositories\\UsersRepository.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAjwHcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T06:58:44.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IUsersRepository.cs",
+              "DocumentMoniker": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
+              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
+              "ToolTip": "D:\\GIL\\GIL-Agent-Portal\\GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
+              "RelativeToolTip": "GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T06:58:17.015Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

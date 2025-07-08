@@ -1,0 +1,6 @@
+@GIL_Agent_Portal_HostAddress = http://localhost:5231
+
+GET {{GIL_Agent_Portal_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,91 @@
+[
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "GetAllRegistrationList",
+    "RelativePath": "api/Users/GetAllRegistrationList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "GetLoginAuthorization",
+    "RelativePath": "api/Users/LoginAuthorization",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "UserUpdate",
+    "RelativePath": "api/Users/update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "users",
+        "Type": "GIL_Agent_Portal.Models.updateUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "Login",
+    "RelativePath": "api/Users/UserLogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GIL_Agent_Portal.DTOs.UserLoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "UserRegister",
+    "RelativePath": "api/Users/UserRegistration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "users",
+        "Type": "GIL_Agent_Portal.Models.Users",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[GIL_Agent_Portal.WeatherForecast, GIL-Agent-Portal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
