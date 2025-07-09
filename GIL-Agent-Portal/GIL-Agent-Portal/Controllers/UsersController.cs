@@ -138,33 +138,29 @@ namespace GIL_Agent_Portal.Controllers
                     _logger.LogWarning("UserId is null or invalid in UpdateUser request");
                     return BadRequest("UserId cannot be null or invalid.");
                 }
-                if (users.status == false)
+                // 1. Approve/Reject logic based on status
+                if (users.status.HasValue)
                 {
-                    try
+                    if (users.status.Value == false)
                     {
+                        _logger.LogInformation("Rejecting user with UserId: {UserId}", users.UserId);
                         _usersService.RejectUser(users.UserId);
-                        return Ok("Rejection email sent successfully.");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        return BadRequest(ex.Message);
-                    }
-                }
-                else
-                {
-
-                    try
-                    {
+                        _logger.LogInformation("Approving user with UserId: {UserId}", users.UserId);
                         _usersService.ApproveUser(users.UserId);
-                        return Ok("Approval email sent successfully.");
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
                     }
                 }
-                var updatedUser = _usersService.UserUpdate(users); 
-                return Ok(new { Message = "User updated successfully", UpdatedUser = updatedUser });
+                var updatedUser = _usersService.UserUpdate(users);
+
+                return Ok(new
+                {
+                    Message = "User updated successfully",
+                    StatusAction = users.status.HasValue ? (users.status.Value ? "Approved" : "Rejected") : "No status change",
+                    BlockStatusAction = users.BlockStatus.HasValue ? $"BlockStatus changed to {users.BlockStatus}" : "No block change",
+                    UpdatedUser = updatedUser
+                });
             }
             catch (Exception ex)
             {
