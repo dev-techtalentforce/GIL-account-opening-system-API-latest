@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/GIL-Agent-Portal/.vs/GIL-Agent-Portal/FileContentIndex/aeaeb20b-373e-4efb-b5f2-8a9e92401bcd.vsidx
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Debug/net8.0/EndpointInfo/GIL-Agent-Portal.json
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Debug/net8.0/GIL-Agent-Portal.sourcelink.json
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.AssemblyInfo.cs
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.AssemblyInfoInputs.cache
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.assets.cache
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.csproj.AssemblyReference.cache
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.GeneratedMSBuildEditorConfig.editorconfig
+/GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.GlobalUsings.g.cs
