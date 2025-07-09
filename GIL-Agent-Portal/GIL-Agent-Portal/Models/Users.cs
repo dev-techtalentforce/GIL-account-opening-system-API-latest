@@ -20,6 +20,7 @@ namespace GIL_Agent_Portal.Models
         public string? ReferralCode { get; set; }
         public string? Address { get; set; }
         public bool? status { get; set; }
+        public int? BlockStatus { get; set; }
 
     }
 
