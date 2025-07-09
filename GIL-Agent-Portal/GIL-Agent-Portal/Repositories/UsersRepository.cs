@@ -65,7 +65,7 @@ namespace GIL_Agent_Portal.Repositories
             parameters.Add("@RefreshToken", users.RefreshToken);
             parameters.Add("@RefreshTokenExpiryTime", users.RefreshTokenExpiryTime);
             parameters.Add("@Mobile", users.mobile);
-            parameters.Add("@PanCrad", users.PanCard);
+            parameters.Add("@PanCard", users.PanCard);
             parameters.Add("@ReferralCode", users.ReferralCode);
             parameters.Add("@Address", users.Address);
 
@@ -128,7 +128,7 @@ namespace GIL_Agent_Portal.Repositories
         Users IUsersRepository.UserUpdate(updateUser users)
         {
 
-            var sp = "user_update";
+            var sp = "status_action_update";
             var parameters = new DynamicParameters();
             parameters.Add("@UserId", users.UserId);
             //parameters.Add("@FirstName", users.FirstName);
@@ -142,20 +142,22 @@ namespace GIL_Agent_Portal.Repositories
             //parameters.Add("@Mobile", users.mobile);
             //parameters.Add("@PanCard", users.PanCard); // Adjusted
             //parameters.Add("@ReferralCode", users.ReferralCode);
-            //parameters.Add("@Address", users.Address);
+            parameters.Add("@BlockStatus", users.BlockStatus);
             parameters.Add("@status", users.status);
 
             try
             {
                 _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
                 var updatedUser = _dbConnection.QuerySingleOrDefault<Users>(sp, parameters, commandType: CommandType.StoredProcedure);
+
                 if (updatedUser == null)
                 {
                     _logger.LogWarning("No user updated for UserId: {UserId}", users.UserId);
                     throw new Exception("No record found or updated for the specified UserId.");
                 }
+
                 _logger.LogInformation("User updated successfully with email: {Email}", updatedUser.Email);
-                return updatedUser ;
+                return updatedUser;
             }
             catch (Exception ex)
             {
