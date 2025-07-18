@@ -166,6 +166,40 @@ namespace GIL_Agent_Portal.Repositories
             }
 
         }
+
+        public Users UserProfileUpdate(Users users)
+        {
+
+            var sp = "user_profile_update";
+            var parameters = new DynamicParameters();
+            parameters.Add("@UserId", users.UserId);
+            parameters.Add("@FirstName", users.FirstName);
+            parameters.Add("@LastName", users.LastName);
+            parameters.Add("@Email", users.Email, DbType.String);
+            parameters.Add("@Address", users.Address);
+            parameters.Add("@Mobile", users.mobile);
+
+
+            try
+            {
+                _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
+                var userProfileUpdate = _dbConnection.QuerySingleOrDefault<Users>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                if (userProfileUpdate == null)
+                {
+                    _logger.LogWarning("No user updated for UserId: {UserId}", users.UserId);
+                    throw new Exception("No record found or updated for the specified UserId.");
+                }
+
+                _logger.LogInformation("User updated successfully with email: {Email}", userProfileUpdate.Email);
+                return userProfileUpdate;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating user with UserId: {UserId}", users.UserId);
+                throw new Exception($"Error updating user: {ex.Message}", ex);
+            }
+        }
     }
 }
 

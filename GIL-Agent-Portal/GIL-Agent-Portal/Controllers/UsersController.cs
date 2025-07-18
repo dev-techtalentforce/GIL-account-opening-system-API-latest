@@ -133,7 +133,7 @@ namespace GIL_Agent_Portal.Controllers
             try
             {
                 _logger.LogInformation("Updating user with UserId: {UserId}", users?.UserId);
-                if (users == null || users.UserId <= 0) 
+                if (users == null || users.UserId <= 0)
                 {
                     _logger.LogWarning("UserId is null or invalid in UpdateUser request");
                     return BadRequest("UserId cannot be null or invalid.");
@@ -167,6 +167,13 @@ namespace GIL_Agent_Portal.Controllers
                 _logger.LogError(ex, "Failed to update user with UserId: {UserId}", users?.UserId);
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPost("ProfileUpdate")]
+        public IActionResult userProfileUpdate([FromBody] Users users)
+        {
+            var result = _usersService.UserProfileUpdate(users);
+            return Ok(result);
         }
     }
 }
