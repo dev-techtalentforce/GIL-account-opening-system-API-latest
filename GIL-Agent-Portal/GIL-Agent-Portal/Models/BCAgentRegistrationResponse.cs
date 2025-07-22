@@ -14,7 +14,7 @@
 
     public class BcAgentRegistrationResult
     {
-        public long bcagentid { get; set; }
+        public string bcagentid { get; set; }
         public string description { get; set; }
         public int status { get; set; }
     }

@@ -33,14 +33,13 @@ namespace GIL_Agent_Portal.Services
 
             
             string token = NsdlSignCsHelper.ExtractToken(tokenKey);       
-            string secretKey = NsdlSignCsHelper.ExtractKey(tokenKey);     
-
+            string secretKey = NsdlSignCsHelper.ExtractKey(tokenKey);
             
             string bcid = await _nsdlBcRegistrationCaller.CallBcRegistrationAsync();
 
            
             model.token = token;
-            model.bcid = "225"; 
+            model.bcid = bcid;
 
            
             string checksum = $"{model.channelid}{model.appid}{model.partnerid}{model.bcid}{model.bcagentid}{model.bcagentname}{model.middlename}{model.lastname}{model.companyname}" +
