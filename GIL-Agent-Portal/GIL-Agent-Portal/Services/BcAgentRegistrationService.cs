@@ -2,6 +2,7 @@
 using GIL_Agent_Portal.Repositories.Interface;
 using GIL_Agent_Portal.Services.Intetrface;
 using GIL_Agent_Portal.Utlity;
+using Newtonsoft.Json;
 
 namespace GIL_Agent_Portal.Services
 {
@@ -23,42 +24,40 @@ namespace GIL_Agent_Portal.Services
         {
 
 
-           
+         
             var tokenResponse = await _sessionTokenService.FetchNsdlSessionTokenAsync();
+            string tokenKey = tokenResponse?.Sessiontokendtls?.TokenKey;
+
+            if (string.IsNullOrWhiteSpace(tokenKey) || tokenKey.Length != 256)
+                throw new InvalidOperationException("Invalid or missing tokenKey. Expected 256 characters.");
 
             
-            if (tokenResponse?.Sessiontokendtls?.Token == null)
-            {
-               
-                throw new InvalidOperationException("Failed to fetch session token.");
-            }
-
-            string token = tokenResponse.Sessiontokendtls.Token;
+            string token = NsdlSignCsHelper.ExtractToken(tokenKey);       
+            string secretKey = NsdlSignCsHelper.ExtractKey(tokenKey);     
 
             
-            string signcs = await _nsdlSignCsHelper.RunTestAsync();  // Now this returns the signcs
-
-           
-            string agentbcid = await _nsdlBcRegistrationCaller.CallBcRegistrationAsync();  // Now this returns the agentbcid
+            string bcid = await _nsdlBcRegistrationCaller.CallBcRegistrationAsync();
 
            
             model.token = token;
-            model.signcs = signcs; 
-            model.agentbcid = agentbcid; 
+            model.bcid = "225"; 
 
+           
             string checksum = $"{model.channelid}{model.appid}{model.partnerid}{model.bcid}{model.bcagentid}{model.bcagentname}{model.middlename}{model.lastname}{model.companyname}" +
                               $"{model.address}{model.statename}{model.cityname}{model.district}{model.area}{model.pincode}{model.mobilenumber}{model.telephone}{model.alternatenumber}{model.emailid}{model.dob}" +
                               $"{model.shopaddress}{model.shopstate}{model.shopcity}{model.shopdistrict}{model.shoparea}{model.shoppincode}{model.pancard}{model.bcagentform}" +
-                              $"{model.productdetails.dmt}{model.productdetails.aeps}{model.productdetails.cardpin}{model.productdetails.accountopen}" +
-                              $"{model.terminaldetails.tposserialno}{model.terminaldetails.taddress}{model.terminaldetails.taddress1}{model.terminaldetails.tpincode}" +
-                              $"{model.terminaldetails.tcity}{model.terminaldetails.tstate}{model.terminaldetails.temail}{model.agenttype}{model.agentbcid}{model.token}";
+                              $"{model.productdetails?.dmt}{model.productdetails?.aeps}{model.productdetails?.cardpin}{model.productdetails?.accountopen}" +
+                              $"{model.terminaldetails?.tposserialno}{model.terminaldetails?.taddress}{model.terminaldetails?.taddress1}{model.terminaldetails?.tpincode}" +
+                              $"{model.terminaldetails?.tcity}{model.terminaldetails?.tstate}{model.terminaldetails?.temail}{model.agenttype}{model.agentbcid}{model.token}";
 
-           
-            model.signcs = NsdlSignCsHelper.GenerateSignCs(NsdlSignCsHelper.ExtractKey(model.token), checksum);
+   
+            model.signcs = NsdlSignCsHelper.GenerateSignCs(secretKey, checksum);
 
-            Console.WriteLine("BCAGENTREGISTRATION..", checksum);
+        
+            string finalPayloadJson = JsonConvert.SerializeObject(model, Formatting.Indented);
+            Console.WriteLine("📦 Final Agent Registration Payload:\n" + finalPayloadJson);
 
-           
+         
             return await _repository.SubmitAgentRegistrationAsync(model);
         }
     }

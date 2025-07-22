@@ -22,7 +22,7 @@ namespace GIL_Agent_Portal.Services
                 mobile = "9892620987",
                 telphonenumber = "",
                 emailid = "sbhojpuri@gmail.com",
-                pancard = "AABCG6123E",
+                pancard = "AYJPR1914J",
                 companyname = "GULAM CSP CENTER",
                 address = "WARD06VILLAGEBHAGWANPURTOLAPOSTYOGIVANABAJARANCHALBATNAHABHAGWANPURURFPATAHISITAMARHIBIHAR843322",
                 pincode = "843322",
@@ -59,10 +59,10 @@ namespace GIL_Agent_Portal.Services
             var registrationResponse = JsonSerializer.Deserialize<BcRegistrationResponse>(raw, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             // Access agentbcid safely from the response
-            var agentBcid = registrationResponse?.AgentData?.bcregistrationnewres?.bcid;
+            var Bcid = registrationResponse?.AgentData?.bcregistrationnewres?.bcid;
 
             // Return the agentbcid as a string (handle null if necessary)
-            return agentBcid?.ToString(); // If agentBcid is null, it will return null
+            return Bcid?.ToString(); // If agentBcid is null, it will return null
         }
     }
 }
