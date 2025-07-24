@@ -14,6 +14,7 @@ namespace GIL_Agent_Portal.Services
 
         public async Task<SessionTokenResponse> FetchNsdlSessionTokenAsync()
         {
+            try
             {
                 var authHeader = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{Username}:{Password}"));
 
@@ -27,9 +28,10 @@ namespace GIL_Agent_Portal.Services
                     appid = "com.jarviswebbc.nsdlpb",
                     userid = "919510352639",
                     usertype = "PARTNER",
-                    partnerid = "wpemmjhKus",
+                    partnerid = Username,
                     token = "NA"
                 };
+
                 var json = JsonSerializer.Serialize(requestPayload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -37,9 +39,9 @@ namespace GIL_Agent_Portal.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Error: {response.StatusCode}");
+                    Console.WriteLine($"HTTP Error: {response.StatusCode}");
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
-                    return null!;
+                    return null;
                 }
 
                 var rawResponse = await response.Content.ReadAsStringAsync();
@@ -47,9 +49,24 @@ namespace GIL_Agent_Portal.Services
                 {
                     PropertyNameCaseInsensitive = true
                 };
+
                 var result = JsonSerializer.Deserialize<SessionTokenResponse>(rawResponse, options);
-                return result!;
+                return result;
             }
+            catch (HttpRequestException httpEx)
+            {
+                Console.WriteLine($"Request error: {httpEx.Message}");
+            }
+            catch (JsonException jsonEx)
+            {
+                Console.WriteLine($"JSON error: {jsonEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+            }
+
+            return null;
         }
     }
 }

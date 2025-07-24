@@ -1,8 +1,10 @@
 ﻿using GIL_Agent_Portal.Models;
+using GIL_Agent_Portal.Repositories;
 using GIL_Agent_Portal.Utlity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Razorpay.Api;
+using System.Data;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -12,30 +14,20 @@ namespace GIL_Agent_Portal.Controllers
     [ApiController]
     public class PaymentsController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
+        private readonly RazorPayService _service;
 
-        public PaymentsController(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }     
 
-        [HttpPost("verify")]
-        public IActionResult VerifyPayment([FromBody] RZPCheckoutPayment request)
+        public PaymentsController(IDbConnection dbConnection, ILogger<RazorPayRepository> logger)
         {
-           
-            var result = RazorPayService.GenerateOrder(request);
-            return Ok(result);  
-           
+            var repo = new RazorPayRepository(dbConnection, logger);
+            _service = new RazorPayService(repo);
         }
 
-        //private string GetRazorpaySignature(string data, string secret)
-        //{
-        //    var keyBytes = Encoding.UTF8.GetBytes(secret);
-        //    var messageBytes = Encoding.UTF8.GetBytes(data);
-
-        //    using var hmac = new HMACSHA256(keyBytes);
-        //    var hash = hmac.ComputeHash(messageBytes);
-        //    return BitConverter.ToString(hash).Replace("-", "").ToLower();
-        //}
+        [HttpPost("verify")]
+        public IActionResult CreateOrder([FromBody] PaymentRequest request)
+        {
+            var orderId = _service.GenerateOrder(request.Amount);
+            return Ok(new { orderId });
+        }
     }
 }

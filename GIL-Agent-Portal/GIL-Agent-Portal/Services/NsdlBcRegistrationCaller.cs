@@ -7,62 +7,97 @@ namespace GIL_Agent_Portal.Services
 {
     public class NsdlBcRegistrationCaller
     {
-        public async Task<string> CallBcRegistrationAsync()
-        {
-            var session = await new SessionTokenService().FetchNsdlSessionTokenAsync();
-            string tokenKey = session.Sessiontokendtls.TokenKey;
-            string token = NsdlSignCsHelper.ExtractToken(tokenKey);
-            string key = NsdlSignCsHelper.ExtractKey(tokenKey);
-
-            var request = new BcRegistrationRequest
+       
+            public async Task<string> CallBcRegistrationAsync()
             {
-                appid = "com.jarviswebbc.nsdlpb",
-                partnerid = "wpemmjhKus",
-                ceoname = "JAKIR ANSARI",
-                mobile = "8140528022",
-                telphonenumber = "",
-                emailid = "sbhojpuri@gmail4.com",
-                pancard = "NLXBC1905E",
-                companyname = "metizsoftQAS",
-                address = "WARD06VILLAGEBHAGWANPURTOLAPOSTYOGIVANABAJARANCHALBATNAHABHAGWANPURURFPATAHISITAMARHIBIHAR843322",
-                pincode = "843322",
-                city = "SITAMARHI",
-                state = "Bihar",
-                district = "SITAMARHI",
-                dateofagreement = "08/21/2024",
-                channelid = "lfbpWjegXHwnnirQOlYP",
-                channelkey = "vvYSTiZULlthKgCzAtksvjVvdKrrvDTBaDUWZkEjqCbHeOncrjGrqLeYFPKOlsWmpODkRHjqwLAZyIYUuxjlOxafSekLcaVfQesvWWTnvGRoUCtANtAApwRIsovthEWN",
-                custunqid = "wpemmjhKus",
-                callbackurl = "AG01023",
-                dmt = 1,
-                aeps = 1,
-                cardpin = 0,
-                accountopen = 1,
-                token = token
-            };
+                try
+                {
+                    // Fetch the session token.
+                    var session = await new SessionTokenService().FetchNsdlSessionTokenAsync();
+                    string tokenKey = session.Sessiontokendtls.TokenKey;
 
-            string checksum = $"{request.appid}{request.partnerid}{request.ceoname}{request.mobile}{request.telphonenumber}" +
-                              $"{request.emailid}{request.pancard}{request.companyname}{request.address}{request.pincode}" +
-                              $"{request.city}{request.state}{request.district}{request.dateofagreement}{request.channelid}" +
-                              $"{request.channelkey}{request.custunqid}{request.callbackurl}{request.dmt}{request.aeps}" +
-                              $"{request.cardpin}{request.accountopen}{token}";
+                    // Extract token and key from the session token.
+                    string token = NsdlSignCsHelper.ExtractToken(tokenKey);
+                    string key = NsdlSignCsHelper.ExtractKey(tokenKey);
 
-            request.signcs = NsdlSignCsHelper.GenerateSignCs(key, checksum);
+                    // Prepare the registration request.
+                    var request = new BcRegistrationRequest
+                    {
+                        appid = "com.jarviswebbc.nsdlpb",
+                        partnerid = "wpemmjhKus",
+                        ceoname = "Alpesh Patel",
+                        mobile = "9558013810",
+                        telphonenumber = "07927485109",
+                        emailid = "info@gujaratinfotech.com",
+                        pancard = "AABCG6123E",
+                        companyname = "Gujarat Infotech Ltd",
+                        address= "A2 2nd Floor Jay Tower Ankur Complex Near Ankur Bus Stop Naranpura Ahmedabad 380013 Gujarat",
+                        pincode = "380060",
+                        city = "Ahmedabad",
+                        state = "Ahmedabad",
+                        district = "Ahmedabad",
+                        dateofagreement = "08/28/2024",
+                        channelid = "lfbpWjegXHwnnirQOlYP",
+                        channelkey = "R2gveNNtRmxQrucvkztkwoucaf8agYmVYNyeFi3JDenX7HdzRo9scFh4Usn8nqllgGbeoODhag3aiuCrlPucswV9COBm3bkSGfjmLmQw3gLx3SdEuaxBZnsgrczI5B8V",
+                        custunqid = "wpemmjhKus",
+                        callbackurl = "nsdl.gujaratinfotech.com",
+                        dmt = 1,
+                        aeps = 1,
+                        cardpin = 0,
+                        accountopen = 1,
+                        token = token // Use the actual token here
+                    };
 
-            using var client = new HttpClient();
-            var json = JsonSerializer.Serialize(request);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("https://jiffyuat.nsdlbank.co.in/jarvisgwy/bcregistration", content);
-            response.EnsureSuccessStatusCode();
+                    // Prepare checksum string based on the registration fields.
+                    string checksum = $"{request.appid}{request.partnerid}{request.ceoname}{request.mobile}{request.telphonenumber}" +
+                                      $"{request.emailid}{request.pancard}{request.companyname}{request.address}{request.pincode}" +
+                                      $"{request.city}{request.state}{request.district}{request.dateofagreement}{request.channelid}" +
+                                      $"{request.channelkey}{request.custunqid}{request.callbackurl}{request.dmt}{request.aeps}" +
+                                      $"{request.cardpin}{request.accountopen}{request.token}";
 
-            var raw = await response.Content.ReadAsStringAsync();
-            var registrationResponse = JsonSerializer.Deserialize<BcRegistrationResponse>(raw, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                    // Generate the signcs (checksum) using the key and checksum string.
+                    request.signcs = NsdlSignCsHelper.GenerateSignCs(key, checksum);
 
-            // Access agentbcid safely from the response
-            var Bcid = registrationResponse?.AgentData?.bcregistrationnewres?.bcid;
+                    // Send the registration request via HTTP.
+                    using var client = new HttpClient();
+                    var json = JsonSerializer.Serialize(request);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync("https://jiffyuat.nsdlbank.co.in/jarvisgwy/bcregistration", content);
+                    response.EnsureSuccessStatusCode();
 
-            // Return the agentbcid as a string (handle null if necessary)
-            return Bcid?.ToString(); // If agentBcid is null, it will return null
+                    // Read the response from the registration API.
+                    var raw = await response.Content.ReadAsStringAsync();
+                    var registrationResponse = JsonSerializer.Deserialize<BcRegistrationResponse>(raw, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+                    // Access agentbcid safely from the response.
+                    var Bcid = registrationResponse?.AgentData?.bcregistrationnewres?.bcid;
+
+                    // Return the agentbcid as a string (handle null if necessary).
+                    return Bcid?.ToString(); // If agentBcid is null, it will return null.
+                }
+                catch (HttpRequestException httpEx)
+                {
+                    // Log the HTTP error
+                    Console.WriteLine($"❗ HTTP request error: {httpEx.Message}");
+                }
+                catch (JsonException jsonEx)
+                {
+                    // Log the JSON parsing error
+                    Console.WriteLine($"❗ JSON parsing error: {jsonEx.Message}");
+                }
+                catch (NullReferenceException nullEx)
+                {
+                    // Log the NullReferenceException error
+                    Console.WriteLine($"❗ Null reference error: {nullEx.Message}");
+                }
+                catch (Exception ex)
+                {
+                    // Log any other unexpected error
+                    Console.WriteLine($"❗ Unexpected error: {ex.Message}");
+                }
+
+                return null;
+            }
         }
-    }
+    
 }

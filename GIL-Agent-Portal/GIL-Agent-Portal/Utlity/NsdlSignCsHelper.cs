@@ -38,33 +38,51 @@ namespace GIL_Agent_Portal.Utlity
 
         public async Task<string> RunTestAsync()
         {
-            var tokenService = new SessionTokenService();
-            var result = await tokenService.FetchNsdlSessionTokenAsync();
-
-            if (result?.Sessiontokendtls == null)
+            try
             {
-                Console.WriteLine("❌ Failed to fetch session token.");
-                return null;
+                var tokenService = new SessionTokenService();
+                var result = await tokenService.FetchNsdlSessionTokenAsync();
+
+                if (result?.Sessiontokendtls == null)
+                {
+                    Console.WriteLine("❌ Failed to fetch session token.");
+                    return null;
+                }
+
+                string tokenKey = result.Sessiontokendtls.TokenKey;
+
+                string token = NsdlSignCsHelper.ExtractToken(tokenKey);
+                string key = NsdlSignCsHelper.ExtractKey(tokenKey);
+
+                Console.WriteLine("🔐 TOKEN SPLIT:");
+                Console.WriteLine($"Token: {token}");
+                Console.WriteLine($"Key:   {key}");
+
+                // Dummy checksum for testing – replace with actual checksum logic per API
+                string checksum = $"channelid=lfbpWjegXHwnnirQOlYP|partnerid=wpemmjhKus|appid=com.jarviswebbc.nsdlpb|timestamp={DateTime.UtcNow:yyyyMMddHHmmss}";
+
+                string signcs = NsdlSignCsHelper.GenerateSignCs(key, checksum);
+
+                Console.WriteLine("\n✅ TEST OUTPUT:");
+                Console.WriteLine($"Checksum String: {checksum}");
+                Console.WriteLine($"SignCS: {signcs}");
+
+                return signcs;
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine($"❗ Null reference error: {ex.Message}");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"❗ Format error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❗ Unexpected error: {ex.Message}");
             }
 
-            string tokenKey = result.Sessiontokendtls.TokenKey;
-            string token = NsdlSignCsHelper.ExtractToken(tokenKey);
-            string key = NsdlSignCsHelper.ExtractKey(tokenKey);
-
-            Console.WriteLine("🔐 TOKEN SPLIT:");
-            Console.WriteLine($"Token: {token}");
-            Console.WriteLine($"Key:   {key}");
-
-            // Dummy checksum for testing – replace with actual checksum logic per API
-            string checksum = $"channelid=lfbpWjegXHwnnirQOlYP|partnerid=wpemmjhKus|appid=com.jarviswebbc.nsdlpb|timestamp={DateTime.UtcNow:yyyyMMddHHmmss}";
-
-            string signcs = NsdlSignCsHelper.GenerateSignCs(key, checksum);
-
-            Console.WriteLine("\n✅ TEST OUTPUT:");
-            Console.WriteLine($"Checksum String: {checksum}");
-            Console.WriteLine($"SignCS: {signcs}");
-
-            return signcs;
+            return null;
         }
     }
 }

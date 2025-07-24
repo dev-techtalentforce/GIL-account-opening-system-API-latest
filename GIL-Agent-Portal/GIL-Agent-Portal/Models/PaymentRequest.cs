@@ -2,7 +2,6 @@
 {
     public class PaymentRequest
     {
-        public string AgentId { get; set; }
         public int Amount { get; set; }
     }
 
@@ -15,5 +14,7 @@
         public string orderID { get; set; }
         public string transID { get; set; }
         public string paymentStatus { get; set; }
+        public string RequestData { get; set; }
+        public string ResponseData { get; set; }
     }
 }
