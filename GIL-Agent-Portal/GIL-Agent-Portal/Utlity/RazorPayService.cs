@@ -36,7 +36,7 @@ namespace GIL_Agent_Portal.Utlity
             public string ResponseData { get; set; }
         }
 
-        public OrderDetails GenerateOrder(int amount)
+        public string GenerateOrder(int amount)
         {
             try
             {
@@ -74,17 +74,7 @@ namespace GIL_Agent_Portal.Utlity
 
                 LogPaymentToDatabase(paymentModel);
 
-                return new OrderDetails
-                {
-                    OrderID = paymentModel.orderID,
-                    Amount = amount,
-                    Receipt = receiptId,
-                    Status = paymentModel.paymentStatus,
-                    RequestData = requestJson,
-                    ResponseData = responseJson,
-                   
-                    
-                };
+                return order["id"];
             }
             catch (Exception ex)
             {
@@ -122,6 +112,23 @@ namespace GIL_Agent_Portal.Utlity
                 // e.g., _logger.LogError(ex, "Error in saving Razorpay payment data");
                 return false;
             }
+        }
+        public class RazorpayVerificationRequest
+        {
+            public string OrderId { get; set; }
+            public string? PaymentId { get; set; }
+            public string? Signature { get; set; }
+        }
+
+        public bool VerifyPayment(RazorpayVerificationRequest req)
+        {
+            string payload = $"{req.OrderId}|{req.PaymentId}";
+            string secret = YOUR_KEY_SECRET;
+
+            var hmac = new System.Security.Cryptography.HMACSHA256(System.Text.Encoding.UTF8.GetBytes(secret));
+            var hash = BitConverter.ToString(hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(payload))).Replace("-", "").ToLower();
+
+            return hash == req.Signature;
         }
 
 

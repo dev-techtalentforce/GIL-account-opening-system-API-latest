@@ -7,6 +7,7 @@ using Razorpay.Api;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
+using static GIL_Agent_Portal.Utlity.RazorPayService;
 
 namespace GIL_Agent_Portal.Controllers
 {
@@ -35,6 +36,15 @@ namespace GIL_Agent_Portal.Controllers
         {
             var payments = await _service.GetPaymentsByAgentIdAsync(agentId);
             return Ok(payments);
+        }
+
+        [HttpPost("verifyPayment")]
+        public IActionResult Verify([FromBody] RazorpayVerificationRequest req)
+        {
+            var isValid = _service.VerifyPayment(req);
+            if (isValid)
+                return Ok(new { status = "success" });
+            return BadRequest(new { status = "failed" });
         }
     }
 }

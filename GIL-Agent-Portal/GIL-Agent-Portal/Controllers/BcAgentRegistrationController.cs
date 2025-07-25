@@ -22,5 +22,7 @@ namespace GIL_Agent_Portal.Controllers
             var response = await _service.RegisterAgentAsync(model);
             return Ok(response);
         }
+
+
     }
 }
