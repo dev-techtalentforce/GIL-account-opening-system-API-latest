@@ -12,3 +12,5 @@
 /GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.csproj.AssemblyReference.cache
 /GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.GeneratedMSBuildEditorConfig.editorconfig
 /GIL-Agent-Portal/GIL-Agent-Portal/obj/Release/net8.0/GIL-Agent-Portal.GlobalUsings.g.cs
+/.vs
+/GIL-Agent-Portal/GIL-Agent-Portal/.config
