@@ -1,8 +1,12 @@
-﻿using GIL_Agent_Portal.Models;
+﻿using Dapper;
+using GIL_Agent_Portal.Models;
 using GIL_Agent_Portal.Repositories;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Razorpay.Api;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace GIL_Agent_Portal.Utlity
 {
@@ -11,14 +15,28 @@ namespace GIL_Agent_Portal.Utlity
         private readonly RazorPayRepository _repository;
         private static string YOUR_KEY_ID = "rzp_test_0Uh8LaT1c4HiZc";
         private static string YOUR_KEY_SECRET = "jEnPDu2nt1zl1nLcGQc6iYdU";
+        private readonly RazorpayClient _client;
+        private readonly string _connectionString;
 
-        public RazorPayService(RazorPayRepository repository)
+        public RazorPayService(RazorPayRepository repository, IConfiguration configuration)
         {
             _repository = repository;
+            _client = new RazorpayClient(YOUR_KEY_ID, YOUR_KEY_SECRET);
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-       
-    public string GenerateOrder(int amount)
+
+        public class OrderDetails
+        {
+            public string OrderID { get; set; }
+            public int Amount { get; set; }
+            public string Receipt { get; set; }
+            public string Status { get; set; }
+            public string RequestData { get; set; }
+            public string ResponseData { get; set; }
+        }
+
+        public OrderDetails GenerateOrder(int amount)
         {
             try
             {
@@ -45,25 +63,91 @@ namespace GIL_Agent_Portal.Utlity
                 var paymentModel = new RZPCheckoutPayment
                 {
                     amount = amount,
-                    businessID = 0, // Or use data from notes if available
-                    planID = 0,
                     receipt = receiptId,
+                    AgentId = 1,
                     orderID = order["id"].ToString(),
-                    transID = "", // To be updated later
                     paymentStatus = "Created",
                     RequestData = requestJson,
-                    ResponseData = responseJson
+                    ResponseData = responseJson,
+                   
                 };
 
-                _repository.SavePaymentToDB(paymentModel, paymentModel.orderID, requestJson, responseJson);
+                LogPaymentToDatabase(paymentModel);
 
-                return paymentModel.orderID;
+                return new OrderDetails
+                {
+                    OrderID = paymentModel.orderID,
+                    Amount = amount,
+                    Receipt = receiptId,
+                    Status = paymentModel.paymentStatus,
+                    RequestData = requestJson,
+                    ResponseData = responseJson,
+                   
+                    
+                };
             }
             catch (Exception ex)
             {
-                return "";
+                return null;
             }
         }
-    }
+        private bool LogPaymentToDatabase(RZPCheckoutPayment data)
+        {
+            var sp = "SaveRazorpayPayment";
+            var parameters = new DynamicParameters();
 
+            parameters.Add("@OrderID", data.orderID.ToString());
+            parameters.Add("@Amount", data.amount);
+            parameters.Add("@Receipt", data.receipt);
+            parameters.Add("@AgentId", (object)data.AgentId ?? DBNull.Value);
+            parameters.Add("@Status", data.paymentStatus);
+            parameters.Add("@RequestData", data.RequestData);
+            parameters.Add("@ResponseData", data.ResponseData);
+
+            try
+            {
+                using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    db.Open();
+
+                    // Execute the stored procedure to save payment data
+                    var result = db.ExecuteScalar<int>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (you can implement a logger here if needed)
+                // e.g., _logger.LogError(ex, "Error in saving Razorpay payment data");
+                return false;
+            }
+        }
+
+
+        public async Task<IEnumerable<OrderDetails>> GetPaymentsByAgentIdAsync(int agentId)
+        {
+            var sp = "GetRazorpayPaymentsByAgentId";
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    var parameters = new { AgentId = agentId };
+
+                    var result = await db.QueryAsync<OrderDetails>(
+                        sp,
+                        parameters,
+                        commandType: CommandType.StoredProcedure
+                    );
+
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error retrieving Razorpay payments: {ex.Message}", ex);
+                }
+            }
+        }
+
+    }
 }

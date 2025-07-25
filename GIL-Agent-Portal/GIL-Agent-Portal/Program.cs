@@ -79,6 +79,8 @@ namespace GIL_Agent_Portal
             builder.Services.AddScoped<IBcAgentRegistrationRepository, BcAgentRegistrationRepository>();
             builder.Services.AddScoped<IBcAgentRegistrationService, BcAgentRegistrationService>();
 
+            builder.Services.AddScoped<RazorPayService>();
+            builder.Services.AddScoped<RazorPayRepository>();
 
             builder.Services.AddScoped<IUsersRepository, UsersRepository>();
             builder.Services.AddScoped<IUsersService, UsersService>();

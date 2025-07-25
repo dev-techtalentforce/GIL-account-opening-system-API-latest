@@ -17,10 +17,11 @@ namespace GIL_Agent_Portal.Controllers
         private readonly RazorPayService _service;
 
 
-        public PaymentsController(IDbConnection dbConnection, ILogger<RazorPayRepository> logger)
+
+        public PaymentsController(RazorPayService service)
         {
-            var repo = new RazorPayRepository(dbConnection, logger);
-            _service = new RazorPayService(repo);
+            _service = service;
+
         }
 
         [HttpPost("verify")]
@@ -28,6 +29,12 @@ namespace GIL_Agent_Portal.Controllers
         {
             var orderId = _service.GenerateOrder(request.Amount);
             return Ok(new { orderId });
+        }
+        [HttpGet("{agentId}")]
+        public async Task<IActionResult> GetByAgentId(int agentId)
+        {
+            var payments = await _service.GetPaymentsByAgentIdAsync(agentId);
+            return Ok(payments);
         }
     }
 }

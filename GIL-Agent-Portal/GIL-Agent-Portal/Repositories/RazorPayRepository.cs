@@ -22,11 +22,8 @@ namespace GIL_Agent_Portal.Repositories
             var parameters = new DynamicParameters();   
 
             parameters.Add("@Amount", payment.amount);
-            parameters.Add("@BusinessId", payment.businessID);
-            parameters.Add("@PlanId", payment.planID);
             parameters.Add("@ReceiptId", payment.receipt);
             parameters.Add("@OrderId", payment.orderID);
-            parameters.Add("@TransId", payment.transID ?? "");
             parameters.Add("@PaymentStatus", payment.paymentStatus);
             parameters.Add("@CreatedAt", DateTime.Now);
             parameters.Add("@RequestData", payment.RequestData);
