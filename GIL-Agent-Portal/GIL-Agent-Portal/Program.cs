@@ -78,6 +78,7 @@ namespace GIL_Agent_Portal
             // step -  4  Register interfaces + implementations
             builder.Services.AddScoped<IBcAgentRegistrationRepository, BcAgentRegistrationRepository>();
             builder.Services.AddScoped<IBcAgentRegistrationService, BcAgentRegistrationService>();
+            builder.Services.AddScoped<IAccountOpenRepository, AccountOpenRepository>();
 
             builder.Services.AddScoped<RazorPayService>();
             builder.Services.AddScoped<RazorPayRepository>();
