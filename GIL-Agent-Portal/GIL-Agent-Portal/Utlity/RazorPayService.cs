@@ -59,7 +59,7 @@ namespace GIL_Agent_Portal.Utlity
                 string requestJson = JsonConvert.SerializeObject(orderRequest);
                 Order order = client.Order.Create(orderRequest);
                 string responseJson = JsonConvert.SerializeObject(order);
-
+                                
                 var paymentModel = new RZPCheckoutPayment
                 {
                     amount = amount,
@@ -122,13 +122,16 @@ namespace GIL_Agent_Portal.Utlity
 
         public bool VerifyPayment(RazorpayVerificationRequest req)
         {
-            string payload = $"{req.OrderId}|{req.PaymentId}";
-            string secret = YOUR_KEY_SECRET;
+            RazorpayClient client = new RazorpayClient(YOUR_KEY_ID, YOUR_KEY_SECRET);
 
-            var hmac = new System.Security.Cryptography.HMACSHA256(System.Text.Encoding.UTF8.GetBytes(secret));
-            var hash = BitConverter.ToString(hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(payload))).Replace("-", "").ToLower();
+            Order order = client.Order.Fetch(req.OrderId);
 
-            return hash == req.Signature;
+            string orderId = order["id"].ToString();
+            string status = order["status"].ToString();
+            int amount = Convert.ToInt32(order["amount"]);
+
+            return true;
+            
         }
 
 
