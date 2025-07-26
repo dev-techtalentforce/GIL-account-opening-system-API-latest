@@ -8,5 +8,6 @@ namespace GIL_Agent_Portal.Repositories.Interface
         Task<Dictionary<string, object>?> GetByIdAsync(int id);
         Task<List<Dictionary<string, object>>> GetAllAsync();
         Task<List<Dictionary<string, object>>> GetByAgentIdAsync(string agentId);
+        Task<string> GenerateAccountOpenUrlAsync(AccountOpenRequest req);
     }
 }

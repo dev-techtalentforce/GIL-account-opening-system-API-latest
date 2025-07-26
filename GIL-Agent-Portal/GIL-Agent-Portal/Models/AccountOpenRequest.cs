@@ -2,7 +2,7 @@
 {
     // nomineeDetails
     public string? nomineeName { get; set; }
-    public DateTime? nomineeDob { get; set; }
+    public string? nomineeDob { get; set; }
     public string? relationship { get; set; }
     public string? add1 { get; set; }
     public string? add2 { get; set; }
@@ -14,7 +14,7 @@
     // personalDetails
     public string? customername { get; set; }
     public string? customerLastName { get; set; }
-    public DateTime? dateofbirth { get; set; }
+    public string? dateofbirth { get; set; }
     public string? pincode { get; set; }
     public string? email { get; set; }
     public string? mobileNo { get; set; }

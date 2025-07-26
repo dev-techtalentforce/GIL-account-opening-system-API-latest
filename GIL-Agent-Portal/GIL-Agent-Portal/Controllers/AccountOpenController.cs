@@ -22,7 +22,12 @@ namespace GIL_Agent_Portal.Controllers
         public async Task<IActionResult> Insert([FromBody] AccountOpenRequest req)
         {
             var id = await _repo.InsertAsync(req);
-            return Ok(new { AccountOpenId = id });
+            // return Ok(new { AccountOpenId = id });
+            // 2. Generate the NSDL account open URL
+            string url =await  _repo.GenerateAccountOpenUrlAsync(req);
+
+            // 3. Return only the URL (plain string or as a property)
+            return Ok(url);
         }
 
         // GET: api/AccountOpen/{id}

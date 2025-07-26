@@ -40,7 +40,7 @@ namespace GIL_Agent_Portal.Controllers
 
         [HttpPost("verifyPayment")]
         public IActionResult Verify([FromBody] RazorpayVerificationRequest req)
-        {
+                {
             var isValid = _service.VerifyPayment(req);
             if (isValid)
                 return Ok(new { status = "success" });

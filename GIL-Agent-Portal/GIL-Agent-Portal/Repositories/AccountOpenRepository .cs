@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Dapper;
 using GIL_Agent_Portal.DTOs;
 using System.Data.Common;
+using GIL_Agent_Portal.E;
+using GIL_Agent_Portal.Utlity;
+using GIL_Agent_Portal.Services;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace GIL_Agent_Portal.Repositories
 {
@@ -72,6 +77,103 @@ namespace GIL_Agent_Portal.Repositories
             var result = await cmd.ExecuteScalarAsync();
             return Convert.ToInt32(result);
         }
+
+        public async Task<string> GenerateAccountOpenUrlAsync(AccountOpenRequest req)
+        {
+            try
+            {
+                // 1. Build JSON Payload
+                var payload = new
+                {
+                    nomineeDetails = new
+                    {
+                        nomineeName = req.nomineeName,
+                        nomineeDob = req.nomineeDob,
+                        relationship = req.relationship,
+                        add1 = req.add1,
+                        add2 = req.add2,
+                        add3 = req.add3,
+                        pin = req.pin,
+                        nomineeState = req.nomineeState,
+                        nomineeCity = req.nomineeCity
+                    },
+                    personalDetails = new
+                    {
+                        customername = req.customername,
+                        customerLastName = req.customerLastName,
+                        dateofbirth = req.dateofbirth,
+                        pincode = req.pincode,
+                        email = req.email,
+                        mobileNo = req.mobileNo
+                    },
+                    otherDetails = new
+                    {
+                        maritalStatus = req.maritalStatus,
+                        income = req.income,
+                        middleNameOfMother = req.middleNameOfMother,
+                        houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
+                        kycFlag = req.kycFlag,
+                        panNo = req.panNo
+                    },
+                    additionalParameters = new
+                    {
+                        channelid = req.channelid,
+                        partnerid = req.partnerid,
+                        applicationdocketnumber = req.applicationdocketnumber,
+                        dpid = req.dpid,
+                        clientid = req.clientid,
+                        partnerpan = req.partnerpan,
+                        tradingaccountnumber = req.tradingaccountnumber,
+                        partnerRefNumber = req.partnerRefNumber,
+                        customerRefNumber = req.customerRefNumber,
+                        customerDematId = req.customerDematId,
+                        partnerCallBackURL = req.partnerCallBackURL,
+                        bcid = req.bcid,
+                        bcagentid = req.bcagentid
+                    }
+                };
+
+                // 2. Encrypt the JSON string
+                string jsonPayload = JsonConvert.SerializeObject(payload);
+                string encryptedString = AesEncryptionHelper.Encrypt(jsonPayload);
+
+                // 3. Fetch Session Token (asynchronously)
+                var session = await new SessionTokenService().FetchNsdlSessionTokenAsync();
+                if (session == null || string.IsNullOrEmpty(session.Sessiontokendtls?.TokenKey))
+                {
+                    throw new Exception("Failed to fetch session token or TokenKey is missing.");
+                }
+
+                string tokenKey = session.Sessiontokendtls.TokenKey;
+
+                // 4. Generate SignCS (Signature)
+                string token = NsdlSignCsHelper.ExtractToken(tokenKey);
+                string key = NsdlSignCsHelper.ExtractKey(tokenKey);
+                string signcs = NsdlSignCsHelper.GenerateSignCs(jsonPayload, key);
+
+                // 5. URL Encode all values
+                string urlEncEncrypted = WebUtility.UrlEncode(encryptedString);
+                string urlEncSigncs = WebUtility.UrlEncode(signcs);
+                string urlEncPartnerId = WebUtility.UrlEncode(req.partnerid);
+
+                // 6. Build and return the URL
+                string finalUrl = $"https://jiffyuat.nsdlbank.co.in/jarvisjiffytest/accountOpen" +
+                                  $"?signcs={urlEncSigncs}" +
+                                  $"&encryptedStringCustomer={urlEncEncrypted}" +
+                                  $"&partnerid={urlEncPartnerId}";
+
+                return finalUrl;
+            }
+            catch (Exception ex)
+            {
+                // Handle unexpected errors
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+                throw new Exception("An unexpected error occurred while generating the account URL.");
+            }
+        }
+
+
+
 
         public async Task<Dictionary<string, object>?> GetByIdAsync(int id)
         {
