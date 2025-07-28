@@ -31,4 +31,9 @@ namespace GIL_Agent_Portal.Models
         public bool? status { get; set; }
         public int? BlockStatus { get; set; }
     }
+    public class updatePassword
+    {
+        public int UserId { get; set; }
+        public string? PasswordHash { get; set; }
+    }
 }
