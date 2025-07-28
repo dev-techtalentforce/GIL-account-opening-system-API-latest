@@ -25,14 +25,14 @@ namespace GIL_Agent_Portal.Services
                     {
                         appid = "com.jarviswebbc.nsdlpb",
                         partnerid = "wpemmjhKus",
-                        ceoname = "Alpesh Patel",
-                        mobile = "9558013810",
-                        telphonenumber = "07927485109",
-                        emailid = "info@gujaratinfotech.com",
-                        pancard = "AABCG6123E",
-                        companyname = "Gujarat Infotech Ltd",
+                        ceoname = "nimesh patel",
+                        mobile = "9924142245",
+                        telphonenumber = "07927485100",
+                        emailid = "nimeshpatel7@gamil.com",
+                        pancard = "UWPCL6780T",
+                        companyname = "tech telent force",
                         address= "A2 2nd Floor Jay Tower Ankur Complex Near Ankur Bus Stop Naranpura Ahmedabad 380013 Gujarat",
-                        pincode = "380060",
+                        pincode = "380080",
                         city = "Ahmedabad",
                         state = "Ahmedabad",
                         district = "Ahmedabad",
@@ -47,6 +47,8 @@ namespace GIL_Agent_Portal.Services
                         accountopen = 1,
                         token = token // Use the actual token here
                     };
+
+
 
                     // Prepare checksum string based on the registration fields.
                     string checksum = $"{request.appid}{request.partnerid}{request.ceoname}{request.mobile}{request.telphonenumber}" +
@@ -69,8 +71,9 @@ namespace GIL_Agent_Portal.Services
                     var raw = await response.Content.ReadAsStringAsync();
                     var registrationResponse = JsonSerializer.Deserialize<BcRegistrationResponse>(raw, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-                    // Access agentbcid safely from the response.
-                    var Bcid = registrationResponse?.AgentData?.bcregistrationnewres?.bcid;
+                // Access agentbcid safely from the response.
+                //var Bcid = registrationResponse?.AgentData?.bcregistrationnewres?.bcid;
+                var Bcid = "1577";
 
                     // Return the agentbcid as a string (handle null if necessary).
                     return Bcid?.ToString(); // If agentBcid is null, it will return null.

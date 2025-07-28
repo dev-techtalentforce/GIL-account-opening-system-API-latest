@@ -48,6 +48,28 @@ namespace GIL_Agent_Portal.Repositories
 
             return userList;
         }
+        public List<Users> GetAllUAgentList()
+        {
+            List<Users> userList = new List<Users>();
+            var sp = "UsersGetAllAgent";
+
+            try
+            {
+                using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    db.Open();
+                    var result = db.Query<Users>(sp, commandType: CommandType.StoredProcedure);
+                    userList = result.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // e.g., _logger.LogError(ex, "Error in GetAll");
+            }
+
+            return userList;
+        }
 
 
 
@@ -200,6 +222,8 @@ namespace GIL_Agent_Portal.Repositories
                 throw new Exception($"Error updating user: {ex.Message}", ex);
             }
         }
+
+        
     }
 }
 

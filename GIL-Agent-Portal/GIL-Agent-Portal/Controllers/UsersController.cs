@@ -45,12 +45,14 @@ namespace GIL_Agent_Portal.Controllers
             return Ok(result);
         }
 
-        [HttpPost("UserRegistration")]
-        public IActionResult UserRegister([FromBody] Users users)
+        [HttpGet("GetAllAgentList")]
+
+        public IActionResult GetAllUAgentList()
         {
-            var result = _usersService.UserRegister(users);
+            var result = _usersService.GetAllUAgentList();
             return Ok(result);
         }
+
 
 
         [HttpPost("UserLogin")]

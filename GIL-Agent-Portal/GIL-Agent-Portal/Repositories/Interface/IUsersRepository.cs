@@ -8,6 +8,7 @@ namespace GIL_Agent_Portal.Repositories.Interface
     public interface IUsersRepository
     {
         List<Users> GetAllUserRegisterdList();
+        List<Users> GetAllUAgentList();
         bool UserRegister(Users users);
         UserLoginResponseDto LoginUser(UserLoginRequestDto request);
         string GetUserEmailById(int userId);

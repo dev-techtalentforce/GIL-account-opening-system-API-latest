@@ -27,6 +27,10 @@ namespace GIL_Agent_Portal.Services
         {
             return _usersRepository.GetAllUserRegisterdList();
         }
+        public List<Users> GetAllUAgentList()
+        {
+            return _usersRepository.GetAllUAgentList();
+        }
 
         public UserLoginResponseDto LoginUser(UserLoginRequestDto request)
         {

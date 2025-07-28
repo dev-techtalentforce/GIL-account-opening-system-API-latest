@@ -6,6 +6,7 @@ namespace GIL_Agent_Portal.Services.Intetrface
     public interface IUsersService
     {
         List<Users> GetAllUserRegisterdList();
+        List<Users> GetAllUAgentList();
         bool UserRegister(Users users);
         UserLoginResponseDto LoginUser(UserLoginRequestDto request);
         void ApproveUser(int userId);
