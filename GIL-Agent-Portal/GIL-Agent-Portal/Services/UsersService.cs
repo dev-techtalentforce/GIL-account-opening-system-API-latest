@@ -96,5 +96,27 @@ namespace GIL_Agent_Portal.Services
                 throw;
             }
         }
+
+        public Users UpdatePassword(Users users)
+        {
+            try
+            {
+                _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
+                if (users == null || users.UserId <= 0) // Updated condition for int
+                {
+                    _logger.LogWarning("UserId is null or invalid in UpdateUser request");
+                    throw new ArgumentException("UserId cannot be null or invalid.", nameof(users.UserId));
+                }
+                var updatedUser = _usersRepository.UpdatePassword(users);
+                _logger.LogInformation("User updated successfully with email: {Email}", users.Email);
+
+                return updatedUser;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to update user with UserId: {UserId}", users.UserId);
+                throw;
+            }
+        }
     }
 }

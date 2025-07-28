@@ -12,6 +12,7 @@ namespace GIL_Agent_Portal.Repositories.Interface
         UserLoginResponseDto LoginUser(UserLoginRequestDto request);
         string GetUserEmailById(int userId);
         Users UserUpdate(updateUser users);
+        Users UpdatePassword(Users user);
 
 
     }

@@ -166,6 +166,31 @@ namespace GIL_Agent_Portal.Repositories
             }
 
         }
+
+        public Users UpdatePassword(Users users)
+        {
+            var sp = "UpdateUsersPassword";
+            var parameters = new DynamicParameters();
+            parameters.Add("@UserId", users.UserId);
+            parameters.Add("@PasseordHash", users.PasswordHash);
+            try
+            {
+                _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
+                var updatedUser = _dbConnection.QuerySingleOrDefault<Users>(sp, parameters, commandType: CommandType.StoredProcedure);
+                if (updatedUser == null)
+                {
+                    _logger.LogWarning("No user updated for UserId: {UserId}", users.UserId);
+                    throw new Exception("No record found or updated for the specified UserId.");
+                }
+                _logger.LogInformation("User updated successfully with email: {Email}", updatedUser.Email);
+                return updatedUser;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating user with UserId: {UserId}", users.UserId);
+                throw new Exception($"Error updating user: {ex.Message}", ex);
+            }
+        }
     }
 }
 
