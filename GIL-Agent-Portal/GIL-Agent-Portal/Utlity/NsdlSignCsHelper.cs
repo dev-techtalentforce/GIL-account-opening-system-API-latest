@@ -9,7 +9,7 @@ namespace GIL_Agent_Portal.Utlity
         public static string GenerateSignCs(string key, string checksum)
         {
             try
-            {
+                {
                 var secretKeyBytes = Encoding.UTF8.GetBytes(key);
                 var checksumBytes = Encoding.UTF8.GetBytes(checksum);
 

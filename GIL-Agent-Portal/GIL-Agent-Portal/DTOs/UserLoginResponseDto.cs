@@ -11,6 +11,6 @@
         public int? AgentId { get; set; }         
         public string KYCStatus { get; set; }
         public string ReferralCode { get; set; }
-        public string RoleName { get; set; }
+        public int RoleId { get; set; }
     }
 }

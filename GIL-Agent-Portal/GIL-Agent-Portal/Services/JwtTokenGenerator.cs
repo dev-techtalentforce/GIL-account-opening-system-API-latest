@@ -28,7 +28,7 @@ namespace GIL_Agent_Portal.Services
             var claims = new[]
             {
         new Claim(ClaimTypes.Email, userResponse.Email),
-        new Claim(ClaimTypes.Role, userResponse.RoleName.ToString()) // Update if necessary
+        new Claim(ClaimTypes.Role, userResponse.RoleId.ToString()) // Update if necessary
     };
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
