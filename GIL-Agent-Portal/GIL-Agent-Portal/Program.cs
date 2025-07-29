@@ -81,6 +81,8 @@ namespace GIL_Agent_Portal
             builder.Services.AddScoped<IAccountOpenRepository, AccountOpenRepository>();
 
             builder.Services.AddScoped<RazorPayService>();
+            builder.Services.AddScoped<PaymentHistoryRepository>();
+
             builder.Services.AddScoped<RazorPayRepository>();
 
             builder.Services.AddScoped<IUsersRepository, UsersRepository>();

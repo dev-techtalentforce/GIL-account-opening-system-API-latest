@@ -17,12 +17,14 @@ namespace GIL_Agent_Portal.Utlity
         private static string YOUR_KEY_SECRET = "jEnPDu2nt1zl1nLcGQc6iYdU";
         private readonly RazorpayClient _client;
         private readonly string _connectionString;
+        PaymentHistoryRepository _paymentHistory;
 
-        public RazorPayService(RazorPayRepository repository, IConfiguration configuration)
+        public RazorPayService(RazorPayRepository repository, IConfiguration configuration, PaymentHistoryRepository paymentHistory)
         {
             _repository = repository;
             _client = new RazorpayClient(YOUR_KEY_ID, YOUR_KEY_SECRET);
             _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _paymentHistory = paymentHistory;
         }
 
 
@@ -36,7 +38,7 @@ namespace GIL_Agent_Portal.Utlity
             public string ResponseData { get; set; }
         }
 
-        public string GenerateOrder(int amount)
+        public string GenerateOrder(PaymentRequest request)
         {
             try
             {
@@ -45,7 +47,7 @@ namespace GIL_Agent_Portal.Utlity
                 string receiptId = "rcpt_" + Guid.NewGuid().ToString().Substring(0, 8);
                 var orderRequest = new Dictionary<string, object>
             {
-                { "amount", amount * 100 },  // in paise
+                { "amount", request.Amount*100 },  // in paise
                 { "currency", "INR" },
                 { "receipt", receiptId },
                 { "notes", new Dictionary<string, object>
@@ -62,9 +64,9 @@ namespace GIL_Agent_Portal.Utlity
                                 
                 var paymentModel = new RZPCheckoutPayment
                 {
-                    amount = amount,
+                    amount = request.Amount,
                     receipt = receiptId,
-                    AgentId = 1,
+                    AgentId = request.AgentID,
                     orderID = order["id"].ToString(),
                     paymentStatus = "Created",
                     RequestData = requestJson,
@@ -73,6 +75,12 @@ namespace GIL_Agent_Portal.Utlity
                 };
 
                 LogPaymentToDatabase(paymentModel);
+                //var verificationReq = new RazorpayVerificationRequest
+                //{
+                //    OrderId = order["id"].ToString()
+                //    // No payment ID/signature yet
+                //};
+                //VerifyPayment(verificationReq);
 
                 return order["id"];
             }
@@ -89,7 +97,7 @@ namespace GIL_Agent_Portal.Utlity
             parameters.Add("@OrderID", data.orderID.ToString());
             parameters.Add("@Amount", data.amount);
             parameters.Add("@Receipt", data.receipt);
-            parameters.Add("@AgentId", (object)data.AgentId ?? DBNull.Value);
+            parameters.Add("@AgentId", data.AgentId);
             parameters.Add("@Status", data.paymentStatus);
             parameters.Add("@RequestData", data.RequestData);
             parameters.Add("@ResponseData", data.ResponseData);
@@ -122,20 +130,40 @@ namespace GIL_Agent_Portal.Utlity
 
         public bool VerifyPayment(RazorpayVerificationRequest req)
         {
-            RazorpayClient client = new RazorpayClient(YOUR_KEY_ID, YOUR_KEY_SECRET);
+            try
+            {
+                RazorpayClient client = new RazorpayClient(YOUR_KEY_ID, YOUR_KEY_SECRET);
+                Order order = client.Order.Fetch(req.OrderId);
 
-            Order order = client.Order.Fetch(req.OrderId);
+                string orderId = order["id"].ToString();
+                string status = order["status"].ToString();
+                int amount = Convert.ToInt32(order["amount"]);
+                string receiptId = order["receipt"].ToString();
+                DateTime createdDate = DateTime.Now;
 
-            string orderId = order["id"].ToString();
-            string status = order["status"].ToString();
-            int amount = Convert.ToInt32(order["amount"]);
+                // Create history record
+                var history = new PaymentHistoryResponse
+                {
+                    PhOrderId = orderId,
+                    PhPaidAmount = amount/100 ,
+                    PhStatus = status == "paid" ? 1 : 0,
+                    PhCreditId=1,
+                    PhCreditValue = 100
+                };
 
-            return true;
-            
+                // Call repository to save log
+                _paymentHistory.AddPaymentHistory(history);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
 
-        public async Task<IEnumerable<OrderDetails>> GetPaymentsByAgentIdAsync(int agentId)
+        public async Task<IEnumerable<OrderDetails>> GetPaymentsByAgentIdAsync(string agentId)
         {
             var sp = "GetRazorpayPaymentsByAgentId";
             using (IDbConnection db = new SqlConnection(_connectionString))

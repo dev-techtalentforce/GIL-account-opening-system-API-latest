@@ -25,14 +25,16 @@ namespace GIL_Agent_Portal.Controllers
 
         }
 
-        [HttpPost("verify")]
+        [HttpPost("paymentProcessing")]
         public IActionResult CreateOrder([FromBody] PaymentRequest request)
         {
-            var orderId = _service.GenerateOrder(request.Amount);
+            var orderId = _service.GenerateOrder(request);
             return Ok(new { orderId });
         }
-        [HttpGet("{agentId}")]
-        public async Task<IActionResult> GetByAgentId(int agentId)
+
+
+        [HttpGet("GetByAgentId")]
+        public async Task<IActionResult> GetByAgentId(string agentId)
         {
             var payments = await _service.GetPaymentsByAgentIdAsync(agentId);
             return Ok(payments);

@@ -11,7 +11,7 @@ namespace GIL_Agent_Portal.Repositories.Interface
         List<Users> GetAllUAgentList();
         bool UserRegister(Users users);
         UserLoginResponseDto LoginUser(UserLoginRequestDto request);
-        string GetUserEmailById(int userId);
+        string GetUserEmailById(string userId);
         Users UserUpdate(updateUser users);
         Users UpdatePassword(Users user);
         Users UserProfileUpdate(Users users);

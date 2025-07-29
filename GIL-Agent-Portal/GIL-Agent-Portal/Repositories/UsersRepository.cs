@@ -134,7 +134,7 @@ namespace GIL_Agent_Portal.Repositories
             }
         }
 
-        public string GetUserEmailById(int userId)
+        public string GetUserEmailById(string userId)
         {
             try
             {
