@@ -41,6 +41,8 @@ namespace GIL_Agent_Portal.Services
                 model.token = token;
                 model.bcid = bcid;
 
+                model.dob = FormatDobAsDdMmYyyy(model.dob);
+
                 string checksum = $"{model.channelid}{model.appid}{model.partnerid}{model.bcid}{model.bcagentid}{model.bcagentname}{model.middlename}{model.lastname}{model.companyname}" +
                                   $"{model.address}{model.statename}{model.cityname}{model.district}{model.area}{model.pincode}{model.mobilenumber}{model.telephone}{model.alternatenumber}{model.emailid}{model.dob}" +
                                   $"{model.shopaddress}{model.shopstate}{model.shopcity}{model.shopdistrict}{model.shoparea}{model.shoppincode}{model.pancard}{model.bcagentform}" +
@@ -74,6 +76,26 @@ namespace GIL_Agent_Portal.Services
             {
                 Console.WriteLine($"❗ Unexpected error: {ex.Message}");
                 throw;
+            }
+        }
+
+        public static string FormatDobAsDdMmYyyy(string dob)
+        {
+            if (string.IsNullOrWhiteSpace(dob)) return "";
+
+            DateTime parsedDate;
+            // Try all likely formats you expect, add more if needed
+            string[] formats = { "yyyy-MM-dd", "MM/dd/yyyy", "dd/MM/yyyy", "dd-MM-yyyy" };
+
+            if (DateTime.TryParseExact(dob, formats,
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None, out parsedDate))
+            {
+                return parsedDate.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                throw new Exception($"DOB '{dob}' is not in a recognized format.");
             }
         }
     }

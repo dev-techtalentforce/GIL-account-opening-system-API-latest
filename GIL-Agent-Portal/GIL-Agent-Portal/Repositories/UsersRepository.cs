@@ -82,7 +82,7 @@ namespace GIL_Agent_Portal.Repositories
             parameters.Add("@LastName", users.LastName);
             parameters.Add("@Email", users.Email);
             parameters.Add("@PasswordHash", users.PasswordHash);
-            parameters.Add("@RoleId", users.RoleId);
+            //parameters.Add("@RoleId", users.RoleId);
             parameters.Add("@IsActive", users.IsActive);
             parameters.Add("@RefreshToken", users.RefreshToken);
             parameters.Add("@RefreshTokenExpiryTime", users.RefreshTokenExpiryTime);
@@ -96,8 +96,8 @@ namespace GIL_Agent_Portal.Repositories
                 using (IDbConnection db = new SqlConnection(_connectionString))
                 {
                     db.Open();
-                    var result = db.ExecuteScalar<int>(sp, parameters, commandType: CommandType.StoredProcedure);
-                    return result > 0;
+                    var result = db.ExecuteScalar<string>(sp, parameters, commandType: CommandType.StoredProcedure);
+                    return !string.IsNullOrEmpty(result);
                 }
             }
             catch (Exception ex)

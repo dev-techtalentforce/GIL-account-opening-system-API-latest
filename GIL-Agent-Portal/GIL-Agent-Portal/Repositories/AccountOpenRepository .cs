@@ -82,13 +82,16 @@ namespace GIL_Agent_Portal.Repositories
         {
             try
             {
+
+                string formattedDateOfBirth = req.dateofbirth?.ToString("dd/MM/yyyy");
+                string formattedNomineeDob = req.nomineeDob?.ToString("dd/MM/yyyy");
                 // 1. Build JSON Payload
                 var payload = new
                 {
                     nomineeDetails = new
                     {
                         nomineeName = req.nomineeName,
-                        nomineeDob = req.nomineeDob,
+                        nomineeDob = formattedNomineeDob,
                         relationship = req.relationship,
                         add1 = req.add1,
                         add2 = req.add2,
@@ -101,7 +104,7 @@ namespace GIL_Agent_Portal.Repositories
                     {
                         customername = req.customername,
                         customerLastName = req.customerLastName,
-                        dateofbirth = req.dateofbirth,
+                        dateofbirth = formattedDateOfBirth,
                         pincode = req.pincode,
                         email = req.email,
                         mobileNo = req.mobileNo

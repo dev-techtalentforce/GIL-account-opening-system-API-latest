@@ -54,6 +54,21 @@ namespace GIL_Agent_Portal.Controllers
         }
 
 
+        [HttpPost("UserRegistration")]
+        public IActionResult Register([FromBody] Users users)
+        {
+            if (users == null)
+                return BadRequest("User data is required.");
+
+            var isRegistered = _usersService.UserRegister(users);
+
+            if (isRegistered)
+                return Ok(new { message = "User registered successfully." });
+
+            return StatusCode(500, new { message = "User registration failed." });
+        }
+
+
 
         [HttpPost("UserLogin")]
         public IActionResult Login([FromBody] UserLoginRequestDto request)
@@ -89,8 +104,8 @@ namespace GIL_Agent_Portal.Controllers
                     RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7),
                     KYCStatus = user.KYCStatus,
                     ReferralCode = user.ReferralCode,
-                    RoleName = user.RoleName.ToString(),
-                    nsdl_status = user.nsdl_status,
+                    RoleId = user.RoleId,
+                    AgentId = user.AgentId,
                 };
 
                 // Return JWT token and user details
