@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj": {}
+    "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj": {}
   },
   "projects": {
-    "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj": {
+    "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
+        "projectUniqueName": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
         "projectName": "GIL-Agent-Portal",
-        "projectPath": "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
+        "projectPath": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\obj\\",
+        "outputPath": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

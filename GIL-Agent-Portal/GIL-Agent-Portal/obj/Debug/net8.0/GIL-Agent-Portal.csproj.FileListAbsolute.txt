@@ -187,3 +187,15 @@ D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\o
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.pdb
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.genruntimeconfig.cache
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\ref\GIL-Agent-Portal.dll
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.csproj.AssemblyReference.cache
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.AssemblyInfoInputs.cache
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.AssemblyInfo.cs
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.csproj.CoreCompileInputs.cache
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.MvcApplicationPartsAssemblyInfo.cs
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.MvcApplicationPartsAssemblyInfo.cache
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.sourcelink.json
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.dll
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\refint\GIL-Agent-Portal.dll
+D:\Ratin Bhai Project\API Project\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.pdb
