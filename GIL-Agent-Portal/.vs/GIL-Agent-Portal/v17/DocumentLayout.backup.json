@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -15,8 +15,12 @@
       "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\services\\intetrface\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\intetrface\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\models\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\models\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\repositories\\interface\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\repositories\\interface\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|d:\\ratin bhai project\\api project\\gil-account-opening-system-api-latest\\gil-agent-portal\\gil-agent-portal\\services\\intetrface\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3833C98C-8C6A-4075-AEA3-99965639330D}|GIL-Agent-Portal\\GIL-Agent-Portal.csproj|solutionrelative:gil-agent-portal\\services\\intetrface\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 23,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,28 +114,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Program.cs",
               "RelativeDocumentMoniker": "GIL-Agent-Portal\\Program.cs",
               "ToolTip": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Program.cs",
               "RelativeToolTip": "GIL-Agent-Portal\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T12:53:23.729Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\appsettings.json",
-              "RelativeDocumentMoniker": "GIL-Agent-Portal\\appsettings.json",
-              "ToolTip": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\appsettings.json",
-              "RelativeToolTip": "GIL-Agent-Portal\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-30T12:37:09.565Z",
               "EditorCaption": ""
             },
             {
@@ -158,25 +141,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ResetPassword.cs",
-              "DocumentMoniker": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Models\\ResetPassword.cs",
-              "RelativeDocumentMoniker": "GIL-Agent-Portal\\Models\\ResetPassword.cs",
-              "ToolTip": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Models\\ResetPassword.cs",
-              "RelativeToolTip": "GIL-Agent-Portal\\Models\\ResetPassword.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T09:46:04.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "IUsersRepository.cs",
               "DocumentMoniker": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
               "RelativeDocumentMoniker": "GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
               "ToolTip": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
               "RelativeToolTip": "GIL-Agent-Portal\\Repositories\\Interface\\IUsersRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T09:45:20.702Z",
               "EditorCaption": ""
@@ -189,33 +159,33 @@
               "RelativeDocumentMoniker": "GIL-Agent-Portal\\Repositories\\UsersRepository.cs",
               "ToolTip": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Repositories\\UsersRepository.cs",
               "RelativeToolTip": "GIL-Agent-Portal\\Repositories\\UsersRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T09:44:52.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "UsersService.cs",
               "DocumentMoniker": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\UsersService.cs",
               "RelativeDocumentMoniker": "GIL-Agent-Portal\\Services\\UsersService.cs",
               "ToolTip": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\UsersService.cs",
               "RelativeToolTip": "GIL-Agent-Portal\\Services\\UsersService.cs",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAAALkAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T09:43:48.735Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "IUsersService.cs",
               "DocumentMoniker": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
               "RelativeDocumentMoniker": "GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
               "ToolTip": "D:\\Ratin Bhai Project\\API Project\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
               "RelativeToolTip": "GIL-Agent-Portal\\Services\\Intetrface\\IUsersService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T09:43:47.409Z",
               "EditorCaption": ""
