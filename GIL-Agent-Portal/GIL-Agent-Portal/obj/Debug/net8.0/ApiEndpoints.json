@@ -1,5 +1,153 @@
 [
   {
+    "ContainingType": "GIL_Agent_Portal.Controllers.AccountOpenController",
+    "Method": "GetById",
+    "RelativePath": "api/AccountOpen/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.AccountOpenController",
+    "Method": "GetByAgentId",
+    "RelativePath": "api/AccountOpen/agent/{agentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "agentId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.AccountOpenController",
+    "Method": "GetAll",
+    "RelativePath": "api/AccountOpen/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.AccountOpenController",
+    "Method": "Insert",
+    "RelativePath": "api/AccountOpen/insert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "AccountOpenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.BcAgentRegistrationController",
+    "Method": "RegisterAgent",
+    "RelativePath": "api/BcAgentRegistration/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "GIL_Agent_Portal.Models.BcAgentRegistrationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.PaymentsController",
+    "Method": "GetByAgentId",
+    "RelativePath": "api/Payments/{agentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "agentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.PaymentsController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/Payments/verify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GIL_Agent_Portal.Models.PaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.PaymentsController",
+    "Method": "Verify",
+    "RelativePath": "api/Payments/verifyPayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "GIL_Agent_Portal.Utlity.RazorPayService\u002BRazorpayVerificationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "GetAgentDetails",
+    "RelativePath": "api/Users/GetAgentDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "users",
+        "Type": "GIL_Agent_Portal.Models.Users",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "GetAllUAgentList",
+    "RelativePath": "api/Users/GetAllAgentList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
     "Method": "GetAllRegistrationList",
     "RelativePath": "api/Users/GetAllRegistrationList",
@@ -17,6 +165,54 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "userProfileUpdate",
+    "RelativePath": "api/Users/ProfileUpdate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "users",
+        "Type": "GIL_Agent_Portal.Models.Users",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "resetForgotPassword",
+    "RelativePath": "api/Users/resetForgotPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPassword",
+        "Type": "GIL_Agent_Portal.Models.ResetPassword",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "upadatePassword",
+    "RelativePath": "api/Users/upadatePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatePassword",
+        "Type": "GIL_Agent_Portal.Models.UpdatePassword",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -53,7 +249,7 @@
   },
   {
     "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
-    "Method": "UserRegister",
+    "Method": "Register",
     "RelativePath": "api/Users/UserRegistration",
     "HttpMethod": "POST",
     "IsController": true,
@@ -81,7 +277,9 @@
         "MediaTypes": [
           "text/plain",
           "application/json",
-          "text/json"
+          "text/json",
+          "application/xml",
+          "text/xml"
         ],
         "StatusCode": 200
       }

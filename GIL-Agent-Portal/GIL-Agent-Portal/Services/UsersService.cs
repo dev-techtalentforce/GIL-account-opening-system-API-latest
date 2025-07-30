@@ -3,6 +3,7 @@ using GIL_Agent_Portal.Models;
 using GIL_Agent_Portal.Repositories;
 using GIL_Agent_Portal.Repositories.Interface;
 using GIL_Agent_Portal.Services.Intetrface;
+using Microsoft.Extensions.Options;
 
 namespace GIL_Agent_Portal.Services
 {
@@ -11,11 +12,13 @@ namespace GIL_Agent_Portal.Services
         private readonly IUsersRepository _usersRepository;
         private readonly IEmailService _emailService;
         private readonly ILogger<UsersService> _logger;
-        public UsersService(IUsersRepository usersRepository, IEmailService emailService, ILogger<UsersService> logger)
+        private readonly URLSettings _urlSettings;
+        public UsersService(IUsersRepository usersRepository, IEmailService emailService, ILogger<UsersService> logger, IOptions<URLSettings> options)
         {
             _usersRepository = usersRepository;
             _emailService = emailService;
             _logger = logger;
+            _urlSettings = options.Value;
         }
 
         public bool UserRegister(Users users)
@@ -180,10 +183,9 @@ namespace GIL_Agent_Portal.Services
 
                 var result = _usersRepository.ResetForgotPassword(objResetPassword);
 
-                //var URL = _configuration.GetConnectionString("UIURL");
-                //string baseUrl = URL + "reset-password?token=" + newGuid.ToString();
+                var URL = _urlSettings.UIurl;
+                string baseUrl = URL + "reset-password?token=" + newGuid.ToString();
 
-                string baseUrl = "http://localhost:4200/reset-password?token=" + newGuid.ToString();
                 _emailService.SendEmail(Email, "Reset Forgot Password", "Reset Forgot Password Link Click And Set New Password." + baseUrl);
 
                 return true;
