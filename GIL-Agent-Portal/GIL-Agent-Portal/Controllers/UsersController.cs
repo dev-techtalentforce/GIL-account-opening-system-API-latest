@@ -90,7 +90,7 @@ namespace GIL_Agent_Portal.Controllers
                     KYCStatus = user.KYCStatus,
                     ReferralCode = user.ReferralCode,
                     RoleName = user.RoleName.ToString(),
-                    AgentId = user.AgentId,
+                    nsdl_status = user.nsdl_status,
                 };
 
                 // Return JWT token and user details
@@ -170,12 +170,19 @@ namespace GIL_Agent_Portal.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-        [HttpPost("ProfileUpdate")]
-        public IActionResult userProfileUpdate([FromBody] Users users)
+        [HttpPost("update-password")]
+        public IActionResult UpdateUserPassword([FromBody] updatePassword request)
         {
-            var result = _usersService.UserProfileUpdate(users);
-            return Ok(result);
+            try
+            {
+                var updatedUser = _usersService.UpdateUserPassword(request);
+                return Ok(updatedUser);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in UpdateUserPassword endpoint");
+                return StatusCode(500, new { message = ex.Message });
+            }
         }
     }
 }

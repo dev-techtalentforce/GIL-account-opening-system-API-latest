@@ -8,7 +8,7 @@
         public string Email { get; set; }
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
-        public int? AgentId { get; set; }         
+        public int? nsdl_status { get; set; }         
         public string KYCStatus { get; set; }
         public string ReferralCode { get; set; }
         public string RoleName { get; set; }

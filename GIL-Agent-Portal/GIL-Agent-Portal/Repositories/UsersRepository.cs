@@ -223,32 +223,31 @@ namespace GIL_Agent_Portal.Repositories
             }
         }
 
-        public Users UpdatePassword(Users users)
+        public int UpdateUserPassword(updatePassword request)
         {
-            var sp = "UpdateUsersPassword";
+            const string sp = "UpdateUsersPassword";
             var parameters = new DynamicParameters();
-            parameters.Add("@UserId", users.UserId);
-            parameters.Add("@PasseordHash", users.PasswordHash);
+            parameters.Add("@PasseordHash", request.PasswordHash);
+            parameters.Add("@UserId", request.UserId);
+
             try
             {
-                _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
-                var updatedUser = _dbConnection.QuerySingleOrDefault<Users>(sp, parameters, commandType: CommandType.StoredProcedure);
-                if (updatedUser == null)
-                {
-                    _logger.LogWarning("No user updated for UserId: {UserId}", users.UserId);
-                    throw new Exception("No record found or updated for the specified UserId.");
-                }
-                _logger.LogInformation("User updated successfully with email: {Email}", updatedUser.Email);
-                return updatedUser;
+                _logger.LogInformation("Updating password for UserId: {UserId}", request.UserId);
+
+                // Call stored procedure and get return value
+                var result = _dbConnection.ExecuteScalar<int>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                _logger.LogInformation("Stored procedure return value: {Result}", result);
+                return result;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating user with UserId: {UserId}", users.UserId);
-                throw new Exception($"Error updating user: {ex.Message}", ex);
+                _logger.LogError(ex, "Error updating password for UserId: {UserId}", request.UserId);
+                throw new Exception($"Error updating user password: {ex.Message}", ex);
             }
         }
 
-        
+
     }
 }
 

@@ -12,9 +12,9 @@ namespace GIL_Agent_Portal.Services.Intetrface
         void ApproveUser(int userId);
         void RejectUser(int userId);
         Users UserUpdate(updateUser users);
-        Users UpdatePassword(Users user);
-
         Users UserProfileUpdate(Users users);
+        int UpdateUserPassword(updatePassword request);
+
 
     }
 }
