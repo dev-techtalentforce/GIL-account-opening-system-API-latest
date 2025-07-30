@@ -105,7 +105,7 @@ namespace GIL_Agent_Portal.Controllers
                     KYCStatus = user.KYCStatus,
                     ReferralCode = user.ReferralCode,
                     RoleId = user.RoleId,
-                    AgentId = user.AgentId,
+                    //AgentId = user.AgentId,
                 };
 
                 // Return JWT token and user details

@@ -40,6 +40,7 @@ namespace GIL_Agent_Portal.Services
 
                 model.token = token;
                 model.bcid = bcid;
+                model.agentbcid = bcid;
 
                 model.dob = FormatDobAsDdMmYyyy(model.dob);
 
