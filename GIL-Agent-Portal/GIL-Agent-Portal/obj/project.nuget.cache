@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G/aNpE62yJFt1TbXM2IO5jrqp1ZHFdKUVTjSIJIEsWNfsa8J2JbDpmelWnG5OMvM06C9/4AiWARML4AK4XNp8g==",
+  "dgSpecHash": "yZ5cuGIWQFc=",
   "success": true,
-  "projectFilePath": "D:\\GIL\\GIL-account-opening-system-API-latest\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
+  "projectFilePath": "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -69,8 +69,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Razorpay 3.1.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "projectPath": "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\Ratin Bhai Project\\API\\GIL-Agent-Portal\\GIL-Agent-Portal\\GIL-Agent-Portal.csproj",
       "libraryId": "Razorpay",
       "targetGraphs": [
         "net8.0"
