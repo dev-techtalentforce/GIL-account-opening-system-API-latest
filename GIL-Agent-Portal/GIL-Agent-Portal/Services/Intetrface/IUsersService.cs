@@ -15,6 +15,8 @@ namespace GIL_Agent_Portal.Services.Intetrface
         Users UpdatePassword(Users user);
 
         Users UserProfileUpdate(Users users);
-
+        Users GetAgentDetails(string userId);
+        bool resetForgotPassword(string Email);
+        bool updatePassword(UpdatePassword updatePassword);
     }
 }

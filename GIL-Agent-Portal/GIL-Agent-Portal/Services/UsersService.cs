@@ -146,5 +146,67 @@ namespace GIL_Agent_Portal.Services
                 throw;
             }
         }
+
+        public Users GetAgentDetails(string userId)
+        {
+            try
+            {
+                var result = _usersRepository.GetAgentDetails(userId);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Get Agent Details {UserId}", userId);
+                throw;
+            }
+        }
+
+        public bool resetForgotPassword(string Email)
+        {
+            try
+            {
+                var userId = _usersRepository.GetEmailByUserId(Email);
+                if (string.IsNullOrEmpty(userId))
+                {
+                    throw new Exception($"User with ID {userId} not found or email not available.");
+                }
+
+                Guid newGuid = Guid.NewGuid();
+
+                ResetPassword objResetPassword = new ResetPassword();
+                objResetPassword.UserId = userId;
+                objResetPassword.Email = Email;
+                objResetPassword.Token = newGuid.ToString();
+
+                var result = _usersRepository.ResetForgotPassword(objResetPassword);
+
+                //var URL = _configuration.GetConnectionString("UIURL");
+                //string baseUrl = URL + "reset-password?token=" + newGuid.ToString();
+
+                string baseUrl = "http://localhost:4200/reset-password?token=" + newGuid.ToString();
+                _emailService.SendEmail(Email, "Reset Forgot Password", "Reset Forgot Password Link Click And Set New Password." + baseUrl);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to resetForgotPassword {Email}", Email);
+                throw;
+            }
+        }
+
+        public bool updatePassword(UpdatePassword updatePassword)
+        {
+            try
+            {
+                var result = _usersRepository.updatePassword(updatePassword);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to updatePassword {Token}", updatePassword.Token);
+                throw;
+            }
+        }
     }
 }

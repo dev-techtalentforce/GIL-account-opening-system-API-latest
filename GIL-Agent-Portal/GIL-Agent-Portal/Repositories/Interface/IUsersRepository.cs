@@ -15,7 +15,10 @@ namespace GIL_Agent_Portal.Repositories.Interface
         Users UserUpdate(updateUser users);
         Users UpdatePassword(Users user);
         Users UserProfileUpdate(Users users);
-
+        Users GetAgentDetails(string userId);
+        string GetEmailByUserId(string email);
+        bool ResetForgotPassword(ResetPassword resetPassword);
+        bool updatePassword(UpdatePassword updatePassword);
 
 
     }
