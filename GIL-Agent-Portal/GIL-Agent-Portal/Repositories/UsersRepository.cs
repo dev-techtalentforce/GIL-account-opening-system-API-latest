@@ -247,7 +247,93 @@ namespace GIL_Agent_Portal.Repositories
             }
         }
 
+        public Users GetAgentDetails(string userId)
+        {
+            var sp = "Users_get_by_id";
+            var parameters = new DynamicParameters();
 
+            parameters.Add("@UserId", userId);
+
+            try
+            {
+                using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    db.Open();
+                    var result = db.QuerySingleOrDefault<Users>(sp, parameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // e.g., _logger.LogError(ex, "Error in AddUsersRecord");
+                return null;
+            }
+        }
+
+        public string GetEmailByUserId(string email)
+        {
+            try
+            {
+                var query = "SELECT UserId FROM Users WHERE Email = @email";
+                return _dbConnection.QuerySingleOrDefault<string>(query, new { Email = email });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving email for UserId {email}: {ex.Message}", ex);
+            }
+        }
+
+        public bool ResetForgotPassword(ResetPassword resetPassword)
+        {
+            var sp = "resetForgotPassword_add";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("@UserId", resetPassword.UserId);
+            parameters.Add("@Email", resetPassword.Email);
+            parameters.Add("@Token", resetPassword.Token);
+
+            try
+            {
+                using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    db.Open();
+                    var result = db.ExecuteScalar<int>(sp, parameters, commandType: CommandType.StoredProcedure);
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // e.g., _logger.LogError(ex, "Error in AddUsersRecord");
+                return false;
+            }
+        }
+
+        public bool updatePassword(UpdatePassword updatePassword)
+        {
+            var sp = "UpdateUsersPassword";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("@PasseordHash", updatePassword.Password);
+            parameters.Add("@Token", updatePassword.Token);
+
+            try
+            {
+                using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    db.Open();
+                    var result = db.ExecuteScalar<int>(sp, parameters, commandType: CommandType.StoredProcedure);
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // e.g., _logger.LogError(ex, "Error in AddUsersRecord");
+                return false;
+            }
+        }
     }
 }
 
