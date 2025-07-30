@@ -104,7 +104,7 @@ namespace GIL_Agent_Portal.Controllers
                     RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7),
                     KYCStatus = user.KYCStatus,
                     ReferralCode = user.ReferralCode,
-                    RoleName = user.RoleName.ToString(),
+                    RoleId = user.RoleId,
                     AgentId = user.AgentId,
                 };
 
