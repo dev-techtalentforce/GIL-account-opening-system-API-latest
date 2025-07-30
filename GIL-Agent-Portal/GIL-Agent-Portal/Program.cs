@@ -53,6 +53,8 @@ namespace GIL_Agent_Portal
             //builder.Services.AddScoped<IBcAgentRegistrationRepository, BcAgentRegistrationRepository>();
             //builder.Services.AddScoped<IBCAgentRepository, BCAgentRepository>();
 
+            builder.Services.Configure<URLSettings>(builder.Configuration.GetSection("URLSettings"));
+
             builder.Services.AddScoped<SessionTokenService>();
             //test :- sessionToken- step 1
             var service = new SessionTokenService();
