@@ -106,7 +106,7 @@ namespace GIL_Agent_Portal.Services
             try
             {
                 _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
-                if (users == null || users.UserId <= 0) // Updated condition for int
+                if (users == null) // Updated condition for int
                 {
                     _logger.LogWarning("UserId is null or invalid in UpdateUser request");
                     throw new ArgumentException("UserId cannot be null or invalid.", nameof(users.UserId));
@@ -129,7 +129,7 @@ namespace GIL_Agent_Portal.Services
             {
 
                 _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
-                if (users == null || users.UserId <= 0) // Updated condition for int
+                if (users == null) // Updated condition for int
                 {
                     _logger.LogWarning("UserId is null or invalid in UpdateUser request");
                     throw new ArgumentException("UserId cannot be null or invalid.", nameof(users.UserId));
