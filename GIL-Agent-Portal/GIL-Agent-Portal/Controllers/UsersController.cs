@@ -150,7 +150,7 @@ namespace GIL_Agent_Portal.Controllers
             try
             {
                 _logger.LogInformation("Updating user with UserId: {UserId}", users?.UserId);
-                if (users == null || users.UserId <= 0)
+                if (users == null)
                 {
                     _logger.LogWarning("UserId is null or invalid in UpdateUser request");
                     return BadRequest("UserId cannot be null or invalid.");

@@ -9,8 +9,8 @@ namespace GIL_Agent_Portal.Services.Intetrface
         List<Users> GetAllUAgentList();
         bool UserRegister(Users users);
         UserLoginResponseDto LoginUser(UserLoginRequestDto request);
-        void ApproveUser(int userId);
-        void RejectUser(int userId);
+        void ApproveUser(string userId);
+        void RejectUser(string userId);
         Users UserUpdate(updateUser users);
         Users UserProfileUpdate(Users users);
         int UpdateUserPassword(updatePassword request);
