@@ -105,6 +105,9 @@ namespace GIL_Agent_Portal.Controllers
                     KYCStatus = user.KYCStatus,
                     ReferralCode = user.ReferralCode,
                     RoleId = user.RoleId,
+                    Mobile=user.Mobile,
+                    Pancard=user.Pancard,
+                    Address=user.Address
                     //AgentId = user.AgentId,
                 };
 

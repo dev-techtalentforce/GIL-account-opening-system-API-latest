@@ -86,54 +86,93 @@ namespace GIL_Agent_Portal.Repositories
                 string formattedDateOfBirth = req.dateofbirth?.ToString("dd/MM/yyyy");
                 string formattedNomineeDob = req.nomineeDob?.ToString("dd/MM/yyyy");
                 // 1. Build JSON Payload
+                //var payload = new
+                //{
+                //    nomineeDetails = new
+                //    {
+                //        nomineeName = req.nomineeName,
+                //        nomineeDob = formattedNomineeDob,
+                //        relationship = req.relationship,
+                //        add1 = req.add1,
+                //        add2 = req.add2,
+                //        add3 = req.add3,
+                //        pin = req.pin,
+                //        nomineeState = req.nomineeState,
+                //        nomineeCity = req.nomineeCity
+                //    },
+                //    personalDetails = new
+                //    {
+                //        customername = req.customername,
+                //        customerLastName = req.customerLastName,
+                //        dateofbirth = formattedDateOfBirth,
+                //        pincode = req.pincode,
+                //        email = req.email,
+                //        mobileNo = req.mobileNo
+                //    },
+                //    otherDetails = new
+                //    {
+                //        maritalStatus = req.maritalStatus,
+                //        income = req.income,
+                //        middleNameOfMother = req.middleNameOfMother,
+                //        houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
+                //        kycFlag = req.kycFlag,
+                //        panNo = req.panNo
+                //    },
+                //    additionalParameters = new
+                //    {
+                //        channelid = req.channelid,
+                //        partnerid = req.partnerid,
+                //        applicationdocketnumber = req.applicationdocketnumber,
+                //        dpid = req.dpid,
+                //        clientid = req.clientid,
+                //        partnerpan = req.partnerpan,
+                //        tradingaccountnumber = req.tradingaccountnumber,
+                //        partnerRefNumber = req.partnerRefNumber,
+                //        customerRefNumber = req.customerRefNumber,
+                //        customerDematId = req.customerDematId,
+                //        partnerCallBackURL = req.partnerCallBackURL,
+                //        bcid = req.bcid,
+                //        bcagentid = req.bcagentid
+                //    }
+                //};
+
                 var payload = new
                 {
-                    nomineeDetails = new
-                    {
-                        nomineeName = req.nomineeName,
-                        nomineeDob = formattedNomineeDob,
-                        relationship = req.relationship,
-                        add1 = req.add1,
-                        add2 = req.add2,
-                        add3 = req.add3,
-                        pin = req.pin,
-                        nomineeState = req.nomineeState,
-                        nomineeCity = req.nomineeCity
-                    },
-                    personalDetails = new
-                    {
-                        customername = req.customername,
-                        customerLastName = req.customerLastName,
-                        dateofbirth = formattedDateOfBirth,
-                        pincode = req.pincode,
-                        email = req.email,
-                        mobileNo = req.mobileNo
-                    },
-                    otherDetails = new
-                    {
-                        maritalStatus = req.maritalStatus,
-                        income = req.income,
-                        middleNameOfMother = req.middleNameOfMother,
-                        houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
-                        kycFlag = req.kycFlag,
-                        panNo = req.panNo
-                    },
-                    additionalParameters = new
-                    {
-                        channelid = req.channelid,
-                        partnerid = req.partnerid,
-                        applicationdocketnumber = req.applicationdocketnumber,
-                        dpid = req.dpid,
-                        clientid = req.clientid,
-                        partnerpan = req.partnerpan,
-                        tradingaccountnumber = req.tradingaccountnumber,
-                        partnerRefNumber = req.partnerRefNumber,
-                        customerRefNumber = req.customerRefNumber,
-                        customerDematId = req.customerDematId,
-                        partnerCallBackURL = req.partnerCallBackURL,
-                        bcid = req.bcid,
-                        bcagentid = req.bcagentid
-                    }
+                    nomineeName = req.nomineeName,
+                    nomineeDob = formattedNomineeDob,
+                    relationship = req.relationship,
+                    add1 = req.add1,
+                    add2 = req.add2,
+                    add3 = req.add3,
+                    pin = req.pin,
+                    nomineeState = req.nomineeState,
+                    nomineeCity = req.nomineeCity,
+                    customername = req.customername,
+                    customerLastName = req.customerLastName,
+                    dateofbirth = formattedDateOfBirth,
+                    pincode = req.pincode,
+                    email = req.email,
+                    mobileNo = req.mobileNo,
+                    maritalStatus = req.maritalStatus,
+                    income = req.income,
+                    middleNameOfMother = req.middleNameOfMother,
+                    houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
+                    kycFlag = req.kycFlag,
+                    panNo = req.panNo,
+                    channelid = req.channelid,
+                    partnerid = req.partnerid,
+                    applicationdocketnumber = req.applicationdocketnumber,
+                    dpid = req.dpid,
+                    clientid = req.clientid,
+                    partnerpan = req.partnerpan,
+                    tradingaccountnumber = req.tradingaccountnumber,
+                    partnerRefNumber = req.partnerRefNumber,
+                    customerRefNumber = req.customerRefNumber,
+                    customerDematId = req.customerDematId,
+                    partnerCallBackURL = req.partnerCallBackURL,
+                    bcid = req.bcid,
+                    bcagentid = req.bcagentid
+
                 };
 
                 // 2. Encrypt the JSON string
@@ -156,14 +195,14 @@ namespace GIL_Agent_Portal.Repositories
 
                 // 5. URL Encode all values
                 string urlEncEncrypted = WebUtility.UrlEncode(encryptedString);
-                string urlEncSigncs = WebUtility.UrlEncode(signcs);
-                string urlEncPartnerId = WebUtility.UrlEncode(req.partnerid);
+                //string urlEncSigncs = WebUtility.UrlEncode(signcs);
+                //string urlEncPartnerId = WebUtility.UrlEncode(req.partnerid);
 
                 // 6. Build and return the URL
                 string finalUrl = $"https://jiffyuat.nsdlbank.co.in/jarvisjiffytest/accountOpen" +
-                                  $"?signcs={urlEncSigncs}" +
+                                  $"?signcs={signcs}" +
                                   $"&encryptedStringCustomer={urlEncEncrypted}" +
-                                  $"&partnerid={urlEncPartnerId}";
+                                  $"&partnerid={req.partnerid}";
 
                 return finalUrl;
             }
