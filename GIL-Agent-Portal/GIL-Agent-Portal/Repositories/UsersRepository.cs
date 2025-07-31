@@ -134,7 +134,7 @@ namespace GIL_Agent_Portal.Repositories
             }
         }
 
-        public string GetUserEmailById(int userId)
+        public string GetUserEmailById(string userId)
         {
             try
             {
@@ -166,6 +166,7 @@ namespace GIL_Agent_Portal.Repositories
             //parameters.Add("@ReferralCode", users.ReferralCode);
             parameters.Add("@BlockStatus", users.BlockStatus);
             parameters.Add("@status", users.status);
+            parameters.Add("@nsdl_status", users.nsdl_status);
 
             try
             {
@@ -178,7 +179,7 @@ namespace GIL_Agent_Portal.Repositories
                     throw new Exception("No record found or updated for the specified UserId.");
                 }
 
-                _logger.LogInformation("User updated successfully with email: {Email}", updatedUser.Email);
+                //_logger.LogInformation("User updated successfully with email: {Email}", updatedUser.Email);
                 return updatedUser;
             }
             catch (Exception ex)

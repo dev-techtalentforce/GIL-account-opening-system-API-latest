@@ -73,7 +73,7 @@ namespace GIL_Agent_Portal.Services
 
                 // Access agentbcid safely from the response.
                 //var Bcid = registrationResponse?.AgentData?.bcregistrationnewres?.bcid;
-                var Bcid = "1577";
+                var Bcid = "1516";
 
                     // Return the agentbcid as a string (handle null if necessary).
                     return Bcid?.ToString(); // If agentBcid is null, it will return null.

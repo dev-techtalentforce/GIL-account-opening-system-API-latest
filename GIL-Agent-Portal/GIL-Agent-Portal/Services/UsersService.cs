@@ -41,7 +41,7 @@ namespace GIL_Agent_Portal.Services
             return _usersRepository.LoginUser(request);
         }
 
-        public void ApproveUser(int userId)
+        public void ApproveUser(string userId)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace GIL_Agent_Portal.Services
             }
         }
 
-        public void RejectUser(int userId)
+        public void RejectUser(string userId)
         {
             try
             {
@@ -88,13 +88,13 @@ namespace GIL_Agent_Portal.Services
             try
             {
                 _logger.LogInformation("Updating user with UserId: {UserId}", users.UserId);
-                if (users == null || users.UserId <= 0) // Updated condition for int
+                if (users == null ) // Updated condition for int
                 {
                     _logger.LogWarning("UserId is null or invalid in UpdateUser request");
                     throw new ArgumentException("UserId cannot be null or invalid.", nameof(users.UserId));
                 }
                 var updatedUser = _usersRepository.UserUpdate(users);
-                _logger.LogInformation("User updated successfully with email: {Email}", users.Email);
+                //_logger.LogInformation("User updated successfully with email: {Email}", users.Email);
 
                 return updatedUser;
             }

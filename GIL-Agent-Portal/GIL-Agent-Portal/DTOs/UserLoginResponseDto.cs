@@ -8,9 +8,12 @@
         public string Email { get; set; }
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
-        public int? nsdl_status { get; set; }         
+        public int nsdl_status { get; set; }         
         public string KYCStatus { get; set; }
         public string ReferralCode { get; set; }
-        public int? RoleId { get; set; }
+        public int RoleId { get; set; }
+        public string Mobile { get; set; }
+        public string Pancard { get; set; }
+        public string Address { get; set; }
     }
 }

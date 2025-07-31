@@ -26,10 +26,10 @@ namespace GIL_Agent_Portal.Models
 
     public class  updateUser
     {
-        public int UserId { get; set; }
-        public string? Email { get; set; }
-        public bool? status { get; set; }
-        public int? BlockStatus { get; set; }
+        public string? UserId { get; set; }
+        public bool? status { get; set; } = null; // for approve and reject
+        public int? BlockStatus { get; set; } = null; // for block and unblock
+        public int? nsdl_status { get; set; } = null;
     }
     public class updatePassword
     {

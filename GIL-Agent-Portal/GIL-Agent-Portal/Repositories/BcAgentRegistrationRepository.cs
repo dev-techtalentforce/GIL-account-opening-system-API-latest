@@ -12,12 +12,14 @@ namespace GIL_Agent_Portal.Repositories
         private readonly IConfiguration _configuration;
         private readonly IDbConnection _dbConnection;
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IUsersRepository _userRepository;
 
-        public BcAgentRegistrationRepository(IConfiguration configuration, IDbConnection dbConnection, IHttpClientFactory httpClientFactory )
+        public BcAgentRegistrationRepository(IConfiguration configuration, IDbConnection dbConnection, IHttpClientFactory httpClientFactory, IUsersRepository usersRepository )
         {
             _configuration = configuration;
             _dbConnection = dbConnection;
             _httpClientFactory = httpClientFactory;
+            _userRepository = usersRepository;
         }
         public async Task<BcAgentRegistrationResponse> SubmitAgentRegistrationAsync(BcAgentRegistrationRequest model)
         {
@@ -90,6 +92,18 @@ namespace GIL_Agent_Portal.Repositories
 
                 // Store raw JSON response as log
                 parameters.Add("@ResponseJson", raw);
+
+
+                var data = new updateUser
+                {
+                    UserId = model.bcagentid, // Assuming bcagentid is the UserId
+                    status = null,
+                    BlockStatus = null,
+                    nsdl_status = 1,
+
+                };
+
+                _userRepository.UserUpdate(data);
 
                 await _dbConnection.ExecuteAsync(
                     "BcAgentRegistration_insert", parameters, commandType: CommandType.StoredProcedure

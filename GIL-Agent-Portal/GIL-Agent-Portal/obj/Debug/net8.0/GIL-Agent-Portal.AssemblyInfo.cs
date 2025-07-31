@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GIL-Agent-Portal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+409954a1c9216bddfef8fdfd01f52a43cca07f46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+995153c041329f4ae0bdcb50be7a39456e4b0446")]
 [assembly: System.Reflection.AssemblyProductAttribute("GIL-Agent-Portal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GIL-Agent-Portal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
