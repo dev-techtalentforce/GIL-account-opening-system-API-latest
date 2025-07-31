@@ -83,7 +83,7 @@
     "Parameters": [
       {
         "Name": "agentId",
-        "Type": "System.Int32",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -169,22 +169,6 @@
   },
   {
     "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
-    "Method": "userProfileUpdate",
-    "RelativePath": "api/Users/ProfileUpdate",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "users",
-        "Type": "GIL_Agent_Portal.Models.Users",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
     "Method": "resetForgotPassword",
     "RelativePath": "api/Users/resetForgotPassword",
     "HttpMethod": "POST",
@@ -226,6 +210,22 @@
       {
         "Name": "users",
         "Type": "GIL_Agent_Portal.Models.updateUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GIL_Agent_Portal.Controllers.UsersController",
+    "Method": "UpdateUserPassword",
+    "RelativePath": "api/Users/update-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "GIL_Agent_Portal.Models.updatePassword",
         "IsRequired": true
       }
     ],

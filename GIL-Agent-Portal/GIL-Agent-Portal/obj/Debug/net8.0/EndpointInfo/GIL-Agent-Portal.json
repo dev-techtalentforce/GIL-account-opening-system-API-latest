@@ -211,8 +211,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -443,7 +442,7 @@
         }
       }
     },
-    "/api/Users/ProfileUpdate": {
+    "/api/Users/update-password": {
       "post": {
         "tags": [
           "Users"
@@ -452,32 +451,32 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Users"
+                "$ref": "#/components/schemas/updatePassword"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Users"
+                "$ref": "#/components/schemas/updatePassword"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Users"
+                "$ref": "#/components/schemas/updatePassword"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/Users"
+                "$ref": "#/components/schemas/updatePassword"
               }
             },
             "text/xml": {
               "schema": {
-                "$ref": "#/components/schemas/Users"
+                "$ref": "#/components/schemas/updatePassword"
               }
             },
             "application/*+xml": {
               "schema": {
-                "$ref": "#/components/schemas/Users"
+                "$ref": "#/components/schemas/updatePassword"
               }
             }
           }
@@ -694,6 +693,7 @@
           },
           "nomineeDob": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "relationship": {
@@ -734,6 +734,7 @@
           },
           "dateofbirth": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "pincode": {
@@ -1190,6 +1191,20 @@
             "readOnly": true
           },
           "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "updatePassword": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "passwordHash": {
             "type": "string",
             "nullable": true
           }

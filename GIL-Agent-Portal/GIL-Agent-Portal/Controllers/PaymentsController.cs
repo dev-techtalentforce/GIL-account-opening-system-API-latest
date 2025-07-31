@@ -32,7 +32,7 @@ namespace GIL_Agent_Portal.Controllers
             return Ok(new { orderId });
         }
         [HttpGet("{agentId}")]
-        public async Task<IActionResult> GetByAgentId(int agentId)
+        public async Task<IActionResult> GetByAgentId(string agentId)
         {
             var payments = await _service.GetPaymentsByAgentIdAsync(agentId);
             return Ok(payments);

@@ -135,7 +135,7 @@ namespace GIL_Agent_Portal.Utlity
         }
 
 
-        public async Task<IEnumerable<OrderDetails>> GetPaymentsByAgentIdAsync(int agentId)
+        public async Task<IEnumerable<OrderDetails>> GetPaymentsByAgentIdAsync(string agentId)
         {
             var sp = "GetRazorpayPaymentsByAgentId";
             using (IDbConnection db = new SqlConnection(_connectionString))
