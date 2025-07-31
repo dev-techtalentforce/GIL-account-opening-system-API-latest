@@ -199,5 +199,27 @@ namespace GIL_Agent_Portal.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
+
+        [HttpPost("GetAgentDetails")]
+
+        public IActionResult GetAgentDetails([FromBody] Users users)
+        {
+            var result = _usersService.GetAgentDetails(users.UserId);
+            return Ok(result);
+        }
+
+        [HttpPost("resetForgotPassword")]
+        public IActionResult resetForgotPassword([FromBody] ResetPassword resetPassword)
+        {
+            var result = _usersService.resetForgotPassword(resetPassword.Email);
+            return Ok(result);
+        }
+
+        [HttpPost("upadatePassword")]
+        public IActionResult upadatePassword([FromBody] UpdatePassword updatePassword)
+        {
+            var result = _usersService.updatePassword(updatePassword);
+            return Ok(result);
+        }
     }
 }
