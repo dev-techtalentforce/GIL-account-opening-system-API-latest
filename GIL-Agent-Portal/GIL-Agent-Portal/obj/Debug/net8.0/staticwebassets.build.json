@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "JhL0iKyRU0Wg0sfXaVhlupNPd1a93ngzIG5MVQuWqZc=",
+  "Hash": "PUomkdZ62n6Qub6c+JID/DaOAWce82GERvIktmhbI7s=",
   "Source": "GIL-Agent-Portal",
   "BasePath": "_content/GIL-Agent-Portal",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

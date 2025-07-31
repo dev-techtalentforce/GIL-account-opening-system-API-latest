@@ -5,6 +5,270 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/AccountOpen/insert": {
+      "post": {
+        "tags": [
+          "AccountOpen"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountOpenRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountOpenRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountOpenRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountOpenRequest"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountOpenRequest"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountOpenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AccountOpen/{id}": {
+      "get": {
+        "tags": [
+          "AccountOpen"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AccountOpen/all": {
+      "get": {
+        "tags": [
+          "AccountOpen"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AccountOpen/agent/{agentId}": {
+      "get": {
+        "tags": [
+          "AccountOpen"
+        ],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BcAgentRegistration/register": {
+      "post": {
+        "tags": [
+          "BcAgentRegistration"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BcAgentRegistrationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BcAgentRegistrationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BcAgentRegistrationRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BcAgentRegistrationRequest"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BcAgentRegistrationRequest"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BcAgentRegistrationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Payments/verify": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Payments/{agentId}": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Payments/verifyPayment": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RazorpayVerificationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RazorpayVerificationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RazorpayVerificationRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RazorpayVerificationRequest"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RazorpayVerificationRequest"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RazorpayVerificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Users/LoginAuthorization": {
       "get": {
         "tags": [
@@ -18,6 +282,18 @@
       }
     },
     "/api/Users/GetAllRegistrationList": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/GetAllAgentList": {
       "get": {
         "tags": [
           "Users"
@@ -47,6 +323,21 @@
               }
             },
             "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            },
+            "application/*+xml": {
               "schema": {
                 "$ref": "#/components/schemas/Users"
               }
@@ -81,6 +372,21 @@
               "schema": {
                 "$ref": "#/components/schemas/UserLoginRequestDto"
               }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginRequestDto"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginRequestDto"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginRequestDto"
+              }
             }
           }
         },
@@ -111,6 +417,67 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/updateUser"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/updateUser"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/updateUser"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/updateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/update-password": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePassword"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePassword"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePassword"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePassword"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePassword"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePassword"
               }
             }
           }
@@ -155,6 +522,22 @@
                     "$ref": "#/components/schemas/WeatherForecast"
                   }
                 }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
               }
             }
           }
@@ -164,6 +547,382 @@
   },
   "components": {
     "schemas": {
+      "AccountOpenRequest": {
+        "type": "object",
+        "properties": {
+          "nomineeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomineeDob": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "relationship": {
+            "type": "string",
+            "nullable": true
+          },
+          "add1": {
+            "type": "string",
+            "nullable": true
+          },
+          "add2": {
+            "type": "string",
+            "nullable": true
+          },
+          "add3": {
+            "type": "string",
+            "nullable": true
+          },
+          "pin": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomineeState": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomineeCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "customername": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerLastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateofbirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pincode": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "maritalStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "income": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleNameOfMother": {
+            "type": "string",
+            "nullable": true
+          },
+          "houseOfFatherOrSpouse": {
+            "type": "string",
+            "nullable": true
+          },
+          "kycFlag": {
+            "type": "string",
+            "nullable": true
+          },
+          "panNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "channelid": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerid": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationdocketnumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "dpid": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingaccountnumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerRefNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerpan": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerRefNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerDematId": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerCallBackURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "bcid": {
+            "type": "string",
+            "nullable": true
+          },
+          "bcagentid": {
+            "type": "string",
+            "nullable": true
+          },
+          "agentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BcAgentRegistrationRequest": {
+        "type": "object",
+        "properties": {
+          "channelid": {
+            "type": "string",
+            "nullable": true
+          },
+          "appid": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerid": {
+            "type": "string",
+            "nullable": true
+          },
+          "bcid": {
+            "type": "string",
+            "nullable": true
+          },
+          "bcagentid": {
+            "type": "string",
+            "nullable": true
+          },
+          "bcagentname": {
+            "type": "string",
+            "nullable": true
+          },
+          "middlename": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyname": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "statename": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityname": {
+            "type": "string",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "nullable": true
+          },
+          "area": {
+            "type": "string",
+            "nullable": true
+          },
+          "pincode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobilenumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "alternatenumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailid": {
+            "type": "string",
+            "nullable": true
+          },
+          "dob": {
+            "type": "string",
+            "nullable": true
+          },
+          "shopaddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "shopstate": {
+            "type": "string",
+            "nullable": true
+          },
+          "shopcity": {
+            "type": "string",
+            "nullable": true
+          },
+          "shopdistrict": {
+            "type": "string",
+            "nullable": true
+          },
+          "shoparea": {
+            "type": "string",
+            "nullable": true
+          },
+          "shoppincode": {
+            "type": "string",
+            "nullable": true
+          },
+          "pancard": {
+            "type": "string",
+            "nullable": true
+          },
+          "bcagentform": {
+            "type": "string",
+            "nullable": true
+          },
+          "productdetails": {
+            "$ref": "#/components/schemas/ProductDetails"
+          },
+          "terminaldetails": {
+            "$ref": "#/components/schemas/TerminalDetails"
+          },
+          "agenttype": {
+            "type": "string",
+            "nullable": true
+          },
+          "agentbcid": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "signcs": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentRequest": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductDetails": {
+        "type": "object",
+        "properties": {
+          "dmt": {
+            "type": "string",
+            "nullable": true
+          },
+          "aeps": {
+            "type": "string",
+            "nullable": true
+          },
+          "cardpin": {
+            "type": "string",
+            "nullable": true
+          },
+          "accountopen": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RazorpayVerificationRequest": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "signature": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TerminalDetails": {
+        "type": "object",
+        "properties": {
+          "tposserialno": {
+            "type": "string",
+            "nullable": true
+          },
+          "taddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "taddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "tpincode": {
+            "type": "string",
+            "nullable": true
+          },
+          "tcity": {
+            "type": "string",
+            "nullable": true
+          },
+          "tstate": {
+            "type": "string",
+            "nullable": true
+          },
+          "temail": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UserLoginRequestDto": {
         "type": "object",
         "properties": {
@@ -182,8 +941,8 @@
         "type": "object",
         "properties": {
           "userId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "firstName": {
             "type": "string",
@@ -201,23 +960,8 @@
             "type": "string",
             "nullable": true
           },
-          "roleId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
           "isActive": {
             "type": "boolean",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time",
             "nullable": true
           },
           "refreshToken": {
@@ -243,10 +987,6 @@
           },
           "address": {
             "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "boolean",
             "nullable": true
           }
         },
@@ -275,19 +1015,39 @@
         },
         "additionalProperties": false
       },
-      "updateUser": {
+      "updatePassword": {
         "type": "object",
         "properties": {
           "userId": {
             "type": "integer",
             "format": "int32"
           },
-          "email": {
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "updateUser": {
+        "type": "object",
+        "properties": {
+          "userId": {
             "type": "string",
             "nullable": true
           },
           "status": {
             "type": "boolean",
+            "nullable": true
+          },
+          "blockStatus": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nsdl_status": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },

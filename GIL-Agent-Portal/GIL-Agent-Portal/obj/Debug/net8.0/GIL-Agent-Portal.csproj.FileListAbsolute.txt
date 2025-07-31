@@ -94,6 +94,7 @@ D:\GIL\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.genru
 D:\GIL\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\ref\GIL-Agent-Portal.dll
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\appsettings.Development.json
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\appsettings.json
+D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\GIL-Agent-Portal.staticwebassets.endpoints.json
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\GIL-Agent-Portal.exe
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\GIL-Agent-Portal.deps.json
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\GIL-Agent-Portal.runtimeconfig.json
@@ -135,7 +136,6 @@ D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\b
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\System.Data.SqlClient.dll
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
-D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\System.Formats.Asn1.dll
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\System.Memory.Data.dll
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
@@ -173,14 +173,17 @@ D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\o
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.MvcApplicationPartsAssemblyInfo.cs
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.MvcApplicationPartsAssemblyInfo.cache
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.sourcelink.json
+D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\scopedcss\bundle\GIL-Agent-Portal.styles.css
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets.build.json
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets.development.json
+D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets\msbuild.GIL-Agent-Portal.Microsoft.AspNetCore.StaticWebAssets.props
+D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets\msbuild.GIL-Agent-Portal.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets\msbuild.build.GIL-Agent-Portal.props
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GIL-Agent-Portal.props
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GIL-Agent-Portal.props
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets.pack.json
-D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\scopedcss\bundle\GIL-Agent-Portal.styles.css
+D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agen.F743B3F6.Up2Date
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\GIL-Agent-Portal.dll
 D:\GIL\GIL-account-opening-system-API-latest\GIL-Agent-Portal\GIL-Agent-Portal\obj\Debug\net8.0\refint\GIL-Agent-Portal.dll
