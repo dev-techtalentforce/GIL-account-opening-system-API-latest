@@ -17,6 +17,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using Org.BouncyCastle.Ocsp;
+using System.Text.Encodings.Web;
 
 namespace GIL_Agent_Portal.Repositories
 {
@@ -87,97 +88,97 @@ namespace GIL_Agent_Portal.Repositories
             try
             {
 
-                string formattedDateOfBirth = req.dateofbirth?.ToString("dd/MM/yyyy");
-                string formattedNomineeDob = req.nomineeDob?.ToString("dd/MM/yyyy");
-                // 1. Build JSON Payload
-                //var payload = new
-                //{
-                //    nomineeDetails = new
-                //    {
-                //        nomineeName = req.nomineeName,
-                //        nomineeDob = formattedNomineeDob,
-                //        relationship = req.relationship,
-                //        add1 = req.add1,
-                //        add2 = req.add2,
-                //        add3 = req.add3,
-                //        pin = req.pin,
-                //        nomineeState = req.nomineeState,
-                //        nomineeCity = req.nomineeCity
-                //    },
-                //    personalDetails = new
-                //    {
-                //        customername = req.customername,
-                //        customerLastName = req.customerLastName,
-                //        dateofbirth = formattedDateOfBirth,
-                //        pincode = req.pincode,
-                //        email = req.email,
-                //        mobileNo = req.mobileNo
-                //    },
-                //    otherDetails = new
-                //    {
-                //        maritalStatus = req.maritalStatus,
-                //        income = req.income,
-                //        middleNameOfMother = req.middleNameOfMother,
-                //        houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
-                //        kycFlag = req.kycFlag,
-                //        panNo = req.panNo
-                //    },
-                //    additionalParameters = new
-                //    {
-                //        channelid = req.channelid,
-                //        partnerid = req.partnerid,
-                //        applicationdocketnumber = req.applicationdocketnumber,
-                //        dpid = req.dpid,
-                //        clientid = req.clientid,
-                //        partnerpan = req.partnerpan,
-                //        tradingaccountnumber = req.tradingaccountnumber,
-                //        partnerRefNumber = req.partnerRefNumber,
-                //        customerRefNumber = req.customerRefNumber,
-                //        customerDematId = req.customerDematId,
-                //        partnerCallBackURL = req.partnerCallBackURL,
-                //        bcid = req.bcid,
-                //        bcagentid = req.bcagentid
-                //    }
-                //};
-
+                //string formattedDateOfBirth = req.dateofbirth?.ToString("dd/MM/yyyy");
+                //string formattedNomineeDob = req.nomineeDob?.ToString("dd/MM/yyyy");
+                // 1.Build JSON Payload
                 var payload = new
                 {
-                    nomineeName = req.nomineeName,
-                    nomineeDob = formattedNomineeDob,
-                    relationship = req.relationship,
-                    add1 = req.add1,
-                    add2 = req.add2,
-                    add3 = req.add3,
-                    pin = req.pin,
-                    nomineeState = req.nomineeState,
-                    nomineeCity = req.nomineeCity,
-                    customername = req.customername,
-                    customerLastName = req.customerLastName,
-                    dateofbirth = formattedDateOfBirth,
-                    pincode = req.pincode,
-                    email = req.email,
-                    mobileNo = req.mobileNo,
-                    maritalStatus = req.maritalStatus,
-                    income = req.income,
-                    middleNameOfMother = req.middleNameOfMother,
-                    houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
-                    kycFlag = req.kycFlag,
-                    panNo = req.panNo,
-                    channelid = req.channelid,
-                    partnerid = req.partnerid,
-                    applicationdocketnumber = req.applicationdocketnumber,
-                    dpid = req.dpid,
-                    clientid = req.clientid,
-                    partnerpan = req.partnerpan,
-                    tradingaccountnumber = req.tradingaccountnumber,
-                    partnerRefNumber = req.partnerRefNumber,
-                    customerRefNumber = req.customerRefNumber,
-                    customerDematId = req.customerDematId,
-                    partnerCallBackURL = req.partnerCallBackURL,
-                    bcid = req.bcid,
-                    bcagentid = req.bcagentid
-
+                    nomineeDetails = new
+                    {
+                        nomineeName = req.nomineeName,
+                        nomineeDob = req.nomineeDob,
+                        relationship = req.relationship,
+                        add1 = req.add1,
+                        add2 = req.add2,
+                        add3 = req.add3,
+                        pin = req.pin,
+                        nomineeState = req.nomineeState,
+                        nomineeCity = req.nomineeCity
+                    },
+                    personalDetails = new
+                    {
+                        customername = req.customername,
+                        customerLastName = req.customerLastName,
+                        dateofbirth = req.dateofbirth,
+                        pincode = req.pincode,
+                        email = req.email,
+                        mobileNo = req.mobileNo
+                    },
+                    otherDeatils = new
+                    {
+                        maritalStatus = req.maritalStatus,
+                        income = req.income,
+                        middleNameOfMother = req.middleNameOfMother,
+                        houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
+                        kycFlag = req.kycFlag,
+                        panNo = req.panNo
+                    },
+                    additionalParameters = new
+                    {
+                        channelid = req.channelid,
+                        partnerid = req.partnerid,
+                        applicationdocketnumber = req.applicationdocketnumber,
+                        dpid = req.dpid,
+                        clientid = req.clientid,
+                        partnerpan = req.partnerpan,
+                        tradingaccountnumber = req.tradingaccountnumber,
+                        partnerRefNumber = req.partnerRefNumber,
+                        customerRefNumber = req.customerRefNumber,
+                        customerDematId = req.customerDematId,
+                        partnerCallBackURL = req.partnerCallBackURL,
+                        bcid = req.bcid,
+                        bcagentid = req.bcagentid
+                    }
                 };
+
+                //var payload = new
+                //{
+                //    nomineeName = req.nomineeName,
+                //    nomineeDob = formattedNomineeDob,
+                //    relationship = req.relationship,
+                //    add1 = req.add1,
+                //    add2 = req.add2,
+                //    add3 = req.add3,
+                //    pin = req.pin,
+                //    nomineeState = req.nomineeState,
+                //    nomineeCity = req.nomineeCity,
+                //    customername = req.customername,
+                //    customerLastName = req.customerLastName,
+                //    dateofbirth = formattedDateOfBirth,
+                //    pincode = req.pincode,
+                //    email = req.email,
+                //    mobileNo = req.mobileNo,
+                //    maritalStatus = req.maritalStatus,
+                //    income = req.income,
+                //    middleNameOfMother = req.middleNameOfMother,
+                //    houseOfFatherOrSpouse = req.houseOfFatherOrSpouse,
+                //    kycFlag = req.kycFlag,
+                //    panNo = req.panNo,
+                //    channelid = req.channelid,
+                //    partnerid = req.partnerid,
+                //    applicationdocketnumber = req.applicationdocketnumber,
+                //    dpid = req.dpid,
+                //    clientid = req.clientid,
+                //    partnerpan = req.partnerpan,
+                //    tradingaccountnumber = req.tradingaccountnumber,
+                //    partnerRefNumber = req.partnerRefNumber,
+                //    customerRefNumber = req.customerRefNumber,
+                //    customerDematId = req.customerDematId,
+                //    partnerCallBackURL = req.partnerCallBackURL,
+                //    bcid = req.bcid,
+                //    bcagentid = req.bcagentid
+
+                //};
 
                 // 2. Encrypt the JSON string
                 string jsonPayload = JsonConvert.SerializeObject(payload);
@@ -197,6 +198,7 @@ namespace GIL_Agent_Portal.Repositories
                 //string key = NsdlSignCsHelper.ExtractKey(tokenKey);
                 string signcs = GenerateSignCs(req, key);
 
+                
                 // 5. URL Encode all values
                 string urlEncEncrypted = WebUtility.UrlEncode(encryptedString);
                 //string urlEncSigncs = WebUtility.UrlEncode(signcs);
@@ -223,14 +225,14 @@ namespace GIL_Agent_Portal.Repositories
             string checksum =
         $"{req.pin ?? ""}" +
         $"{req.nomineeName ?? ""}" +
-        $"{req.nomineeDob?.ToString("ddMMMyyyy") ?? ""}" +   // e.g. 22Mar2002
+        $"{req.nomineeDob ?? ""}" +   // e.g. 22Mar2002
         $"{req.relationship ?? ""}" +
         $"{req.add2 ?? ""}" +
         $"{req.add1 ?? ""}" +
         $"{req.nomineeState ?? ""}" +
         $"{req.nomineeCity ?? ""}" +
         $"{req.add3 ?? ""}" +
-        $"{req.dateofbirth?.ToString("ddMMMyyyy") ?? ""}" +  // e.g. 15Aug1990
+        $"{req.dateofbirth ?? ""}" +  // e.g. 15Aug1990
         $"{req.pincode ?? ""}" +
         $"{req.customerLastName ?? ""}" +
         $"{req.mobileNo ?? ""}" +
