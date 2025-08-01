@@ -50,15 +50,15 @@ namespace GIL_Agent_Portal.Services
 
 
 
-                    // Prepare checksum string based on the registration fields.
-                    string checksum = $"{request.appid}{request.partnerid}{request.ceoname}{request.mobile}{request.telphonenumber}" +
-                                      $"{request.emailid}{request.pancard}{request.companyname}{request.address}{request.pincode}" +
-                                      $"{request.city}{request.state}{request.district}{request.dateofagreement}{request.channelid}" +
-                                      $"{request.channelkey}{request.custunqid}{request.callbackurl}{request.dmt}{request.aeps}" +
-                                      $"{request.cardpin}{request.accountopen}{request.token}";
+                // Prepare checksum string based on the registration fields.
+                string checksum = $"{request.appid}{request.partnerid}{request.ceoname}{request.mobile}{request.telphonenumber}" +
+                                  $"{request.emailid}{request.pancard}{request.companyname}{request.address}{request.pincode}" +
+                                  $"{request.city}{request.state}{request.district}{request.dateofagreement}{request.channelid}" +
+                                  $"{request.channelkey}{request.custunqid}{request.callbackurl}{request.dmt}{request.aeps}" +
+                                  $"{request.cardpin}{request.accountopen}{request.token}";
 
-                    // Generate the signcs (checksum) using the key and checksum string.
-                    request.signcs = NsdlSignCsHelper.GenerateSignCs(key, checksum);
+                // Generate the signcs (checksum) using the key and checksum string.
+                request.signcs = NsdlSignCsHelper.GenerateSignCs(key, checksum);
 
                     // Send the registration request via HTTP.
                     using var client = new HttpClient();

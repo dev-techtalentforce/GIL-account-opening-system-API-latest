@@ -14,12 +14,16 @@ using GIL_Agent_Portal.Utlity;
 using GIL_Agent_Portal.Services;
 using Newtonsoft.Json;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
+using Org.BouncyCastle.Ocsp;
 
 namespace GIL_Agent_Portal.Repositories
 {
     public class AccountOpenRepository : IAccountOpenRepository
     {
         private readonly string _connectionString;
+        private readonly string key = "vAouxIEOwuSqpjmYhkcJXmGy3oqmdOrQdArkVmn0MJxvzjNdh5ouJlw3Mf8Kz8mTcDyNahZ4BAT6mkw5P7BV8hlRg6gm13ESTnrh22kMXCp7LpKCzHsxcpXiDylGuzrN";
         public AccountOpenRepository(IConfiguration config)
         {
             _connectionString = config.GetConnectionString("DefaultConnection");
@@ -190,8 +194,8 @@ namespace GIL_Agent_Portal.Repositories
 
                 // 4. Generate SignCS (Signature)
                 string token = NsdlSignCsHelper.ExtractToken(tokenKey);
-                string key = NsdlSignCsHelper.ExtractKey(tokenKey);
-                string signcs = NsdlSignCsHelper.GenerateSignCs(jsonPayload, key);
+                //string key = NsdlSignCsHelper.ExtractKey(tokenKey);
+                string signcs = GenerateSignCs(req, key);
 
                 // 5. URL Encode all values
                 string urlEncEncrypted = WebUtility.UrlEncode(encryptedString);
@@ -212,6 +216,67 @@ namespace GIL_Agent_Portal.Repositories
                 Console.WriteLine($"Unexpected error: {ex.Message}");
                 throw new Exception("An unexpected error occurred while generating the account URL.");
             }
+        }
+        public  string GenerateSignCs(AccountOpenRequest req, string key)
+
+        {
+            string checksum =
+        $"{req.pin ?? ""}" +
+        $"{req.nomineeName ?? ""}" +
+        $"{req.nomineeDob?.ToString("ddMMMyyyy") ?? ""}" +   // e.g. 22Mar2002
+        $"{req.relationship ?? ""}" +
+        $"{req.add2 ?? ""}" +
+        $"{req.add1 ?? ""}" +
+        $"{req.nomineeState ?? ""}" +
+        $"{req.nomineeCity ?? ""}" +
+        $"{req.add3 ?? ""}" +
+        $"{req.dateofbirth?.ToString("ddMMMyyyy") ?? ""}" +  // e.g. 15Aug1990
+        $"{req.pincode ?? ""}" +
+        $"{req.customerLastName ?? ""}" +
+        $"{req.mobileNo ?? ""}" +
+        $"{req.customername ?? ""}" +
+        $"{req.email ?? ""}" +
+        $"{req.partnerRefNumber ?? ""}" +
+        $"{req.clientid ?? ""}" +   
+        $"{req.dpid ?? ""}" +
+        $"{req.customerDematId ?? ""}" +
+        $"{req.bcid ?? ""}" +
+        $"{req.applicationdocketnumber ?? ""}" +
+        $"{req.tradingaccountnumber ?? ""}" +
+        $"{req.bcagentid ?? ""}" +
+        $"{req.customerRefNumber ?? ""}" +
+        $"{req.partnerpan ?? ""}" +
+        $"{req.partnerid ?? ""}" +
+        $"{req.channelid ?? ""}" +
+        $"{req.partnerCallBackURL ?? ""}" +
+        $"{req.income ?? ""}" +
+        $"{req.middleNameOfMother ?? ""}" +
+        $"{req.panNo ?? ""}" +
+        $"{req.kycFlag ?? ""}" +
+        $"{req.maritalStatus ?? ""}" +
+        $"{req.houseOfFatherOrSpouse ?? ""}";
+
+            // 1. Use the concatenated data string
+            string data = checksum;
+
+            // 2. HMACSHA512 hash with key
+            //byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+            //byte[] dataBytes = Encoding.UTF8.GetBytes(data);
+            //using (var hmac = new HMACSHA512(keyBytes))
+            //{
+            //    byte[] hash = hmac.ComputeHash(dataBytes);
+            //    string signcsBase64 = Convert.ToBase64String(hash);
+
+            //    // 3. URL encode for use as URL parameter
+            //    return WebUtility.UrlEncode(signcsBase64);
+            //}
+
+            byte[] databytes = System.Text.Encoding.UTF8.GetBytes(data);
+            byte[] keybytes = System.Text.Encoding.UTF8.GetBytes(key);
+            var hmac = new System.Security.Cryptography.HMACSHA512(keybytes);
+            byte[] computedHash = hmac.ComputeHash(databytes);
+            string hashed = Convert.ToBase64String(computedHash);
+            return hashed;
         }
 
 
