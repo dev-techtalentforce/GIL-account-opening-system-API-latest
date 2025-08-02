@@ -99,5 +99,12 @@ namespace GIL_Agent_Portal.Services
                 throw new Exception($"DOB '{dob}' is not in a recognized format.");
             }
         }
+
+        public Task<BcAgentRegistrationRequest> GetnsdlRegisterAgentById(string id)
+        {
+            var result = _repository.GetnsdlRegisterAgentById(id);
+
+            return result;
+        }
     }
 }

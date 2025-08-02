@@ -31,7 +31,7 @@ namespace GIL_Agent_Portal.Services
         {
             return _usersRepository.GetAllUserRegisterdList();
         }
-        public List<Users> GetAllUAgentList()
+        public List<UsersResponseList> GetAllUAgentList()
         {
             return _usersRepository.GetAllUAgentList();
         }
@@ -206,6 +206,20 @@ namespace GIL_Agent_Portal.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Failed to updatePassword {Token}", updatePassword.Token);
+                throw;
+            }
+        }
+
+        public UsersResponseList GetAgentLoginData(string id)
+        {
+            try
+            {
+                var result = _usersRepository.GetAgentLoginData(id);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("have no loggedin user as per this id");
                 throw;
             }
         }

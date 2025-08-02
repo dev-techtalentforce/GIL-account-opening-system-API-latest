@@ -53,7 +53,12 @@ namespace GIL_Agent_Portal.Controllers
             return Ok(result);
         }
 
-
+        [HttpGet("GetAgentLoginData/{id}")]
+        public IActionResult GetAgentLoginData([FromRoute]  string id)
+        {
+            var result = _usersService.GetAgentLoginData(id);
+            return Ok(result);
+        }
         [HttpPost("UserRegistration")]
         public IActionResult Register([FromBody] Users users)
         {

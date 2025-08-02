@@ -48,9 +48,9 @@ namespace GIL_Agent_Portal.Repositories
 
             return userList;
         }
-        public List<Users> GetAllUAgentList()
+        public List<UsersResponseList> GetAllUAgentList()
         {
-            List<Users> userList = new List<Users>();
+            List<UsersResponseList> userList = new List<UsersResponseList>();
             var sp = "UsersGetAllAgent";
 
             try
@@ -58,7 +58,7 @@ namespace GIL_Agent_Portal.Repositories
                 using (IDbConnection db = new SqlConnection(_connectionString))
                 {
                     db.Open();
-                    var result = db.Query<Users>(sp, commandType: CommandType.StoredProcedure);
+                    var result = db.Query<UsersResponseList>(sp, commandType: CommandType.StoredProcedure);
                     userList = result.ToList();
                 }
             }
@@ -333,6 +333,30 @@ namespace GIL_Agent_Portal.Repositories
                 // Log the exception
                 // e.g., _logger.LogError(ex, "Error in AddUsersRecord");
                 return false;
+            }
+        }
+
+        public UsersResponseList GetAgentLoginData(string id)
+        {
+            var sp = "Users_get_by_id";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("@UserId", id);
+
+            try
+            {
+                using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    db.Open();
+                    var result = db.QuerySingleOrDefault<UsersResponseList>(sp, parameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // e.g., _logger.LogError(ex, "Error in AddUsersRecord");
+                return null;
             }
         }
     }

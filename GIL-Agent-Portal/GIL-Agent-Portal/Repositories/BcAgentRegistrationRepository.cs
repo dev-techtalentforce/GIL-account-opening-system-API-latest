@@ -4,23 +4,31 @@ using System.Text;
 using GIL_Agent_Portal.Repositories.Interface;
 using System.Data;
 using Dapper;
+using Razorpay.Api;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Data.SqlClient;
 
 namespace GIL_Agent_Portal.Repositories
 {
     public class BcAgentRegistrationRepository : IBcAgentRegistrationRepository
     {
         private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
         private readonly IDbConnection _dbConnection;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IUsersRepository _userRepository;
 
+
         public BcAgentRegistrationRepository(IConfiguration configuration, IDbConnection dbConnection, IHttpClientFactory httpClientFactory, IUsersRepository usersRepository )
         {
             _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("DefaultConnection"); // Ensure connection string name matches
             _dbConnection = dbConnection;
             _httpClientFactory = httpClientFactory;
             _userRepository = usersRepository;
         }
+
+
         public async Task<BcAgentRegistrationResponse> SubmitAgentRegistrationAsync(BcAgentRegistrationRequest model)
         {
             // 1. Call external API
@@ -120,23 +128,46 @@ namespace GIL_Agent_Portal.Repositories
             // 4. Return the API response
             return apiResponse!;
         }
+
+        public async Task<BcAgentRegistrationRequest> GetnsdlRegisterAgentById(string id)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                db.Open();
+
+                var parameters = new DynamicParameters();
+                parameters.Add("@AgentId", id);
+
+                // Call the stored procedure or query to fetch the agent
+                var result = await db.QueryFirstOrDefaultAsync<BcAgentRegistrationRequest>(
+                    "GetnsdlRegisterAgentById",
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                return result;
+            }
+        }
+
     }
 
-    
-    
-        //public async Task<BcAgentRegistrationResponse> SubmitAgentRegistrationAsync(BcAgentRegistrationRequest model)
-        //{
-        //    using var client = new HttpClient();
-        //    var json = JsonSerializer.Serialize(model);
-        //    var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        //    var response = await client.PostAsync("https://jiffyuat.nsdlbank.co.in/jarvisgwy/partner/bcagentregistration", content);
-        //    response.EnsureSuccessStatusCode();
-
-        //    var raw = await response.Content.ReadAsStringAsync();
-        //    return JsonSerializer.Deserialize<BcAgentRegistrationResponse>(raw, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
-        //}
 
 
-    
+
+
+    //public async Task<BcAgentRegistrationResponse> SubmitAgentRegistrationAsync(BcAgentRegistrationRequest model)
+    //{
+    //    using var client = new HttpClient();
+    //    var json = JsonSerializer.Serialize(model);
+    //    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+    //    var response = await client.PostAsync("https://jiffyuat.nsdlbank.co.in/jarvisgwy/partner/bcagentregistration", content);
+    //    response.EnsureSuccessStatusCode();
+
+    //    var raw = await response.Content.ReadAsStringAsync();
+    //    return JsonSerializer.Deserialize<BcAgentRegistrationResponse>(raw, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+    //}
+
+
+
 }

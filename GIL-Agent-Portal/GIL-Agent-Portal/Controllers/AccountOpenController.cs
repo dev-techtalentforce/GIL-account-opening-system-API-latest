@@ -27,7 +27,8 @@ namespace GIL_Agent_Portal.Controllers
             string url =await  _repo.GenerateAccountOpenUrlAsync(req);
 
             // 3. Return only the URL (plain string or as a property)
-            return Ok(url);
+            //return Ok(url);
+            return Ok(new { URL = url });
         }
 
         // GET: api/AccountOpen/{id}
