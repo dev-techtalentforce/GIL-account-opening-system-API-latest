@@ -2,6 +2,7 @@
 using GIL_Agent_Portal.Models;
 using GIL_Agent_Portal.Repositories;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Razorpay.Api;
 using System.Data;
@@ -36,7 +37,7 @@ namespace GIL_Agent_Portal.Utlity
             public string ResponseData { get; set; }
         }
 
-        public string GenerateOrder(int amount)
+        public string GenerateOrder(int amount,string agentId)
         {
             try
             {
@@ -64,7 +65,7 @@ namespace GIL_Agent_Portal.Utlity
                 {
                     amount = amount,
                     receipt = receiptId,
-                    AgentId = 1,
+                    AgentId = agentId,
                     orderID = order["id"].ToString(),
                     paymentStatus = "Created",
                     RequestData = requestJson,

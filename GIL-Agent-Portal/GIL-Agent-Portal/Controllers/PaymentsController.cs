@@ -25,10 +25,10 @@ namespace GIL_Agent_Portal.Controllers
 
         }
 
-        [HttpPost("verify")]
+        [HttpPost("paymentProcessing")]
         public IActionResult CreateOrder([FromBody] PaymentRequest request)
         {
-            var orderId = _service.GenerateOrder(request.Amount);
+            var orderId = _service.GenerateOrder(request.Amount, request.AgentId);
             return Ok(new { orderId });
         }
         [HttpGet("{agentId}")]
