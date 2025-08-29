@@ -18,6 +18,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Org.BouncyCastle.Ocsp;
 using System.Text.Encodings.Web;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GIL_Agent_Portal.Repositories
 {
@@ -340,6 +341,51 @@ namespace GIL_Agent_Portal.Repositories
                 list.Add(item);
             }
             return list;
+        }
+
+        public async Task<int> InsertAccountOpenResponseAsync(AccountOpenResponse req)
+        {
+
+
+            var sp = "sp_AccountOpenResponse_Insert";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("@AccountNumber", req.AccountNumber);
+            parameters.Add("@CustomerId", req.CustomerId);
+            parameters.Add("@Cif", req.Cif);
+            parameters.Add("@CustomerName", req.CustomerName);
+            parameters.Add("@CustomerLastName", req.CustomerLastName);
+            parameters.Add("@Email", req.Email);
+            parameters.Add("@MobileNo", req.MobileNo);
+            parameters.Add("@PartnerId", req.PartnerId);
+            parameters.Add("@ChannelId", req.ChannelId);
+            parameters.Add("@PartnerRefNumber", req.PartnerRefNumber);
+            parameters.Add("@CustomerRefNumber", req.CustomerRefNumber);
+            parameters.Add("@CustomerDematId", req.CustomerDematId);
+            parameters.Add("@CustomerClientId", req.CustomerClientId);
+            parameters.Add("@Response", req.Response);
+            parameters.Add("@RespCode", req.RespCode);
+            parameters.Add("@BranchCode", req.BranchCode);
+            parameters.Add("@BranchName", req.BranchName);
+            parameters.Add("@Category", req.Category);
+            parameters.Add("@Ifsccode", req.Ifsccode);
+            //parameters.Add("@NewId", dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+            try
+            {
+                using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    db.Open();
+                  
+                    return await db.ExecuteScalarAsync<int>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while logging in: " + ex.Message);
+              
+            }
         }
     }
 }

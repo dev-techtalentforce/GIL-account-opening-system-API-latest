@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace GIL_Agent_Portal.E
 {
@@ -88,19 +90,27 @@ namespace GIL_Agent_Portal.E
                 }
             }
         }
-    }
-
-
-
-    public static class SignCsHelper
-    {
-        public static string GenerateSignCs(string data, string secretKey)
+        public static string GenerateSignCs(string data)
         {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(System.Text.Encoding.UTF8.GetBytes(secretKey)))
+            using (var hmac = new HMACSHA512(Encoding.UTF8.GetBytes(key)))
             {
-                var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(data));
+                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(data));
                 return Convert.ToBase64String(hash);
             }
         }
     }
+
+
+
+    //public static class SignCsHelper
+    //{
+    //    public static string GenerateSignCs(string data)
+    //    {
+    //        using (var hmac = new System.Security.Cryptography.HMACSHA512(System.Text.Encoding.UTF8.GetBytes(key)))
+    //        {
+    //            var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(data));
+    //            return Convert.ToBase64String(hash);
+    //        }
+    //    }
+    //}
 }

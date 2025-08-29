@@ -76,6 +76,7 @@ namespace GIL_Agent_Portal
             builder.Services.AddScoped<NsdlBcRegistrationCaller>();  // Add this line to register the NsdlBcRegistrationCaller
             builder.Services.AddScoped<SessionTokenService>();
             builder.Services.AddScoped<NsdlSignCsHelper>();
+            //builder.Services.AddScoped<IaccountOpenResponseURLService, AccountOpenResponseURLService>();
 
             // step -  4  Register interfaces + implementations
             builder.Services.AddScoped<IBcAgentRegistrationRepository, BcAgentRegistrationRepository>();
@@ -84,6 +85,8 @@ namespace GIL_Agent_Portal
 
             builder.Services.AddScoped<RazorPayService>();
             builder.Services.AddScoped<RazorPayRepository>();
+
+            builder.Services.AddScoped<IaccountOpenResponseURLService, AccountOpenResponseURLService>();
 
             builder.Services.AddScoped<IUsersRepository, UsersRepository>();
             builder.Services.AddScoped<IUsersService, UsersService>();

@@ -100,6 +100,7 @@ namespace GIL_Agent_Portal.Repositories
 
                 // Store raw JSON response as log
                 parameters.Add("@ResponseJson", raw);
+                parameters.Add("@IsAccountOpen", model.isAccountOpen);
 
 
                 var data = new updateUser

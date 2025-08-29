@@ -36,6 +36,7 @@
         public string agentbcid { get; set; }
         public string token { get; set; }
         public string signcs { get; set; }
+        public int isAccountOpen { get; set; } 
     }
 
     public class ProductDetails
